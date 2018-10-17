@@ -1,0 +1,1 @@
+"./GUI.obj" "./TFT28.obj" "./main.obj" "../lnk_msp430f169.cmd" -llibc.a 
