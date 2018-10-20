@@ -27,6 +27,7 @@ void main(void)
 	    I2C_ack();
         I2C_write_byte(0x40);
         I2C_ack();
+        I2C_stop();
 	    I2C_start();
         I2C_write_byte(0x91);
         I2C_ack();

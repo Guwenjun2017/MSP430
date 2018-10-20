@@ -67,8 +67,8 @@ uchar I2C_read_byte()
     }
     return byte;
 }
-uchar I2C_read_byte()
-{
+//uchar I2C_read_byte()
+//{
 //    uchar data,i;
 //    SDA_OUT;
 //    SCL_OUT;
@@ -76,22 +76,22 @@ uchar I2C_read_byte()
 //    SCL_clr;
 //    delay_us(4);
 //    SDA_set;
-    SDA_IN;
-    uchar data,i;
-    for(i=0; i<8; i++)
-    {
-        SCL_set;
-        delay_us(4);
-        data <<= 1;
-        if(P1IN & BIT2)
-        {
-            data++;
-        }
-        SCL_clr;
-        delay_us(4);
-    }
-    return data;
-}
+//    SDA_IN;
+//    uchar data,i;
+//    for(i=0; i<8; i++)
+//    {
+//        SCL_set;
+//        delay_us(4);
+//        data <<= 1;
+//        if(P1IN & BIT2)
+//        {
+//            data++;
+//        }
+//        SCL_clr;
+//        delay_us(4);
+//    }
+//    return data;
+//}
 void I2C_ack()
 {
     SDA_OUT;

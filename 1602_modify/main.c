@@ -21,13 +21,13 @@ void main(void)
     P4SEL = 0x00;
     P4DIR = 0xff;
     P5DIR |= BIT5 + BIT6 + BIT7 + BIT0 + BIT1 + BIT2;
-    //  P6DIR |= BIT7;
-    //P6OUT &= ~BIT7;
+    P6DIR |= BIT7;
+    P6OUT &= ~BIT7;
     lcd1602_init();
 
     DS1302_init();
 
-    //DHT11_start();
+    DHT11_start();
 
     while(1)
     {
