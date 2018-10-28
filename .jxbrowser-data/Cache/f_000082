@@ -1,0 +1,137 @@
+[
+  {
+    "text": "MSP-GANG",
+    "type": "folder",
+    "numChildren": 1128,
+    "numChildrenLocal": 0,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "url": "/api/resources?path=Development%20Tools/Production%20Programmers&package=com.ti.SIMPLELINK_CC13X0_SDK__2.20.00.38::com.ti.SIMPLELINK_CC13X2_SDK__2.20.00.71::com.ti.SIMPLELINK_MSP432_SDK__2.30.00.14::com.ti.SIMPLELINK_MSP432E4_SDK__2.30.00.14::com.ti.SIMPLELINK_CC26X2_SDK__2.20.00.36::com.ti.SIMPLELINK_CC2640R2_SDK__2.20.00.49::com.ti.SIMPLELINK_CC32XX_SDK__2.30.00.05::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.50.00.62::com.ti.SIMPLELINK_SDK_BLE_PLUGIN__1.40.00.42::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.60.00.07::com.ti.SIMPLELINK_SDK_VOICE_DETECTION_PLUGIN__1.50.00.15::com.ti.SIMPLELINK_SDK_TI_15_4_STACK_PLUGIN__2.20.00.05::com.ti.SIMPLELINK_ZIGBEE_SDK_PLUGIN__2.20.00.06::energia.core__18.0.0::energia.tool.arm-none-eabi-gcc__6.3.1-20170620::energia.tool.ino2cpp__1.0.3::energia.boards.cc13xx__5.20.0::energia.boards.cc3220emt__5.6.2::energia.boards.msp432r__5.6.3::com.ti.WATSON_MSP432E4__1.00.01.01::com.ti.WATSON_CC32XX__1.00.01.01::com.ti.SAIL__1.30.00.02::com.ti.AZURE_CC32XX__2.00.00.07::com.ti.AZURE_MSP432E4__2.00.00.07::com.ti.AWS_CC32XX__2.00.00.09::c2000ware_software_package__1.00.05.00::digital_power_c2000ware_sdk_software_package__1.01.00.00::powerSUITE_software_package__2.02.00.00::com.ti.mmwave_industrial_toolbox__2.5.2::com.ti.mmwave_automotive_toolbox__2.4.1::msp430ware__3.80.05.04::sitara__1.02.00.00::tm4c__2.1.4.178::tirtos_msp43x__2.20.00.06::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::sysbios__6.50.01.12::xdctools__3.50.05.12::com.ti.SIMPLELINK_SDK_NFC_PLUGIN__2.20.00.08::com.ti.AWS_MSP432E4__2.00.00.09",
+    "overviewDescription": "The MSP Gang Programmer is an MSP430/MSP432 device programmer that can program up to eight identical MSP430/MSP432 Flash or FRAM devices at the same time. The MSP Gang Programmer connects to a host PC using a standard RS-232 or USB connection and provides flexible programming options that allow the user to fully customize the process.",
+    "overviewImage": "tirex-product-tree/simplelink-devtools/.metadata/.tirex/img/msp-gang_msp_gang.JPG",
+    "packageOrder": 0
+  },
+  {
+    "text": "MSP432 Adapter for MSP-GANG",
+    "type": "folder",
+    "numChildren": 10,
+    "numChildrenLocal": 0,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "url": "/api/resources?path=Development%20Tools/Production%20Programmers&package=com.ti.SIMPLELINK_CC13X0_SDK__2.20.00.38::com.ti.SIMPLELINK_CC13X2_SDK__2.20.00.71::com.ti.SIMPLELINK_MSP432_SDK__2.30.00.14::com.ti.SIMPLELINK_MSP432E4_SDK__2.30.00.14::com.ti.SIMPLELINK_CC26X2_SDK__2.20.00.36::com.ti.SIMPLELINK_CC2640R2_SDK__2.20.00.49::com.ti.SIMPLELINK_CC32XX_SDK__2.30.00.05::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.50.00.62::com.ti.SIMPLELINK_SDK_BLE_PLUGIN__1.40.00.42::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.60.00.07::com.ti.SIMPLELINK_SDK_VOICE_DETECTION_PLUGIN__1.50.00.15::com.ti.SIMPLELINK_SDK_TI_15_4_STACK_PLUGIN__2.20.00.05::com.ti.SIMPLELINK_ZIGBEE_SDK_PLUGIN__2.20.00.06::energia.core__18.0.0::energia.tool.arm-none-eabi-gcc__6.3.1-20170620::energia.tool.ino2cpp__1.0.3::energia.boards.cc13xx__5.20.0::energia.boards.cc3220emt__5.6.2::energia.boards.msp432r__5.6.3::com.ti.WATSON_MSP432E4__1.00.01.01::com.ti.WATSON_CC32XX__1.00.01.01::com.ti.SAIL__1.30.00.02::com.ti.AZURE_CC32XX__2.00.00.07::com.ti.AZURE_MSP432E4__2.00.00.07::com.ti.AWS_CC32XX__2.00.00.09::c2000ware_software_package__1.00.05.00::digital_power_c2000ware_sdk_software_package__1.01.00.00::powerSUITE_software_package__2.02.00.00::com.ti.mmwave_industrial_toolbox__2.5.2::com.ti.mmwave_automotive_toolbox__2.4.1::msp430ware__3.80.05.04::sitara__1.02.00.00::tm4c__2.1.4.178::tirtos_msp43x__2.20.00.06::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::sysbios__6.50.01.12::xdctools__3.50.05.12::com.ti.SIMPLELINK_SDK_NFC_PLUGIN__2.20.00.08::com.ti.AWS_MSP432E4__2.00.00.09",
+    "overviewDescription": "This kit contains 8 adapters from 14pin JTAG to 20 ARM connectors. It is developed for interfacing from the MSP-GANG Programmer tool to the MSP432 target socket boards (e.g.: MSP-TS432PZ100). The MSP-GANG-432ADPTR kit will be shown on the product page of the MSP-GANG programmer.",
+    "overviewImage": "tirex-product-tree/simplelink-devtools/.metadata/.tirex/img/msp-gang-432adptr_jmi_0135.jpg",
+    "packageOrder": 0
+  },
+  {
+    "text": "ELPROTRONIC",
+    "type": "folder",
+    "numChildren": 578,
+    "numChildrenLocal": 0,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "url": "/api/resources?path=Development%20Tools/Production%20Programmers&package=com.ti.SIMPLELINK_CC13X0_SDK__2.20.00.38::com.ti.SIMPLELINK_CC13X2_SDK__2.20.00.71::com.ti.SIMPLELINK_MSP432_SDK__2.30.00.14::com.ti.SIMPLELINK_MSP432E4_SDK__2.30.00.14::com.ti.SIMPLELINK_CC26X2_SDK__2.20.00.36::com.ti.SIMPLELINK_CC2640R2_SDK__2.20.00.49::com.ti.SIMPLELINK_CC32XX_SDK__2.30.00.05::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.50.00.62::com.ti.SIMPLELINK_SDK_BLE_PLUGIN__1.40.00.42::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.60.00.07::com.ti.SIMPLELINK_SDK_VOICE_DETECTION_PLUGIN__1.50.00.15::com.ti.SIMPLELINK_SDK_TI_15_4_STACK_PLUGIN__2.20.00.05::com.ti.SIMPLELINK_ZIGBEE_SDK_PLUGIN__2.20.00.06::energia.core__18.0.0::energia.tool.arm-none-eabi-gcc__6.3.1-20170620::energia.tool.ino2cpp__1.0.3::energia.boards.cc13xx__5.20.0::energia.boards.cc3220emt__5.6.2::energia.boards.msp432r__5.6.3::com.ti.WATSON_MSP432E4__1.00.01.01::com.ti.WATSON_CC32XX__1.00.01.01::com.ti.SAIL__1.30.00.02::com.ti.AZURE_CC32XX__2.00.00.07::com.ti.AZURE_MSP432E4__2.00.00.07::com.ti.AWS_CC32XX__2.00.00.09::c2000ware_software_package__1.00.05.00::digital_power_c2000ware_sdk_software_package__1.01.00.00::powerSUITE_software_package__2.02.00.00::com.ti.mmwave_industrial_toolbox__2.5.2::com.ti.mmwave_automotive_toolbox__2.4.1::msp430ware__3.80.05.04::sitara__1.02.00.00::tm4c__2.1.4.178::tirtos_msp43x__2.20.00.06::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::sysbios__6.50.01.12::xdctools__3.50.05.12::com.ti.SIMPLELINK_SDK_NFC_PLUGIN__2.20.00.08::com.ti.AWS_MSP432E4__2.00.00.09",
+    "overviewDescription": "Elprotronic provides In-System programmer (FET-Pro-xxx, FlashPro-xxx, GangPro-xxx) and Socket programming solutions (with separate socket boards). MSP-GANG cooperated with TI.",
+    "overviewImage": "tirex-product-tree/simplelink-devtools/.metadata/.tirex/img/XStream.jpg",
+    "packageOrder": 0
+  },
+  {
+    "text": "SEGGER",
+    "type": "folder",
+    "numChildren": 24,
+    "numChildrenLocal": 0,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "url": "/api/resources?path=Development%20Tools/Production%20Programmers&package=com.ti.SIMPLELINK_CC13X0_SDK__2.20.00.38::com.ti.SIMPLELINK_CC13X2_SDK__2.20.00.71::com.ti.SIMPLELINK_MSP432_SDK__2.30.00.14::com.ti.SIMPLELINK_MSP432E4_SDK__2.30.00.14::com.ti.SIMPLELINK_CC26X2_SDK__2.20.00.36::com.ti.SIMPLELINK_CC2640R2_SDK__2.20.00.49::com.ti.SIMPLELINK_CC32XX_SDK__2.30.00.05::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.50.00.62::com.ti.SIMPLELINK_SDK_BLE_PLUGIN__1.40.00.42::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.60.00.07::com.ti.SIMPLELINK_SDK_VOICE_DETECTION_PLUGIN__1.50.00.15::com.ti.SIMPLELINK_SDK_TI_15_4_STACK_PLUGIN__2.20.00.05::com.ti.SIMPLELINK_ZIGBEE_SDK_PLUGIN__2.20.00.06::energia.core__18.0.0::energia.tool.arm-none-eabi-gcc__6.3.1-20170620::energia.tool.ino2cpp__1.0.3::energia.boards.cc13xx__5.20.0::energia.boards.cc3220emt__5.6.2::energia.boards.msp432r__5.6.3::com.ti.WATSON_MSP432E4__1.00.01.01::com.ti.WATSON_CC32XX__1.00.01.01::com.ti.SAIL__1.30.00.02::com.ti.AZURE_CC32XX__2.00.00.07::com.ti.AZURE_MSP432E4__2.00.00.07::com.ti.AWS_CC32XX__2.00.00.09::c2000ware_software_package__1.00.05.00::digital_power_c2000ware_sdk_software_package__1.01.00.00::powerSUITE_software_package__2.02.00.00::com.ti.mmwave_industrial_toolbox__2.5.2::com.ti.mmwave_automotive_toolbox__2.4.1::msp430ware__3.80.05.04::sitara__1.02.00.00::tm4c__2.1.4.178::tirtos_msp43x__2.20.00.06::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::sysbios__6.50.01.12::xdctools__3.50.05.12::com.ti.SIMPLELINK_SDK_NFC_PLUGIN__2.20.00.08::com.ti.AWS_MSP432E4__2.00.00.09",
+    "overviewDescription": "The Flasher family eases the implementation into a production site by allowing the flash programming to be triggered manually or remotely.",
+    "overviewImage": "tirex-product-tree/simplelink-devtools/.metadata/.tirex/img/flasher-arm_image0.jpg",
+    "packageOrder": 0
+  },
+  {
+    "text": "ELNEC",
+    "type": "folder",
+    "numChildren": 576,
+    "numChildrenLocal": 0,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "url": "/api/resources?path=Development%20Tools/Production%20Programmers&package=com.ti.SIMPLELINK_CC13X0_SDK__2.20.00.38::com.ti.SIMPLELINK_CC13X2_SDK__2.20.00.71::com.ti.SIMPLELINK_MSP432_SDK__2.30.00.14::com.ti.SIMPLELINK_MSP432E4_SDK__2.30.00.14::com.ti.SIMPLELINK_CC26X2_SDK__2.20.00.36::com.ti.SIMPLELINK_CC2640R2_SDK__2.20.00.49::com.ti.SIMPLELINK_CC32XX_SDK__2.30.00.05::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.50.00.62::com.ti.SIMPLELINK_SDK_BLE_PLUGIN__1.40.00.42::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.60.00.07::com.ti.SIMPLELINK_SDK_VOICE_DETECTION_PLUGIN__1.50.00.15::com.ti.SIMPLELINK_SDK_TI_15_4_STACK_PLUGIN__2.20.00.05::com.ti.SIMPLELINK_ZIGBEE_SDK_PLUGIN__2.20.00.06::energia.core__18.0.0::energia.tool.arm-none-eabi-gcc__6.3.1-20170620::energia.tool.ino2cpp__1.0.3::energia.boards.cc13xx__5.20.0::energia.boards.cc3220emt__5.6.2::energia.boards.msp432r__5.6.3::com.ti.WATSON_MSP432E4__1.00.01.01::com.ti.WATSON_CC32XX__1.00.01.01::com.ti.SAIL__1.30.00.02::com.ti.AZURE_CC32XX__2.00.00.07::com.ti.AZURE_MSP432E4__2.00.00.07::com.ti.AWS_CC32XX__2.00.00.09::c2000ware_software_package__1.00.05.00::digital_power_c2000ware_sdk_software_package__1.01.00.00::powerSUITE_software_package__2.02.00.00::com.ti.mmwave_industrial_toolbox__2.5.2::com.ti.mmwave_automotive_toolbox__2.4.1::msp430ware__3.80.05.04::sitara__1.02.00.00::tm4c__2.1.4.178::tirtos_msp43x__2.20.00.06::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::sysbios__6.50.01.12::xdctools__3.50.05.12::com.ti.SIMPLELINK_SDK_NFC_PLUGIN__2.20.00.08::com.ti.AWS_MSP432E4__2.00.00.09",
+    "overviewDescription": "ELNEC Production Programmers. Elnec provides In-System programmer (BeeHive203/304/208S)and Socket programmer (BeeProg2/2C/3 & SmartProg2).",
+    "overviewImage": "tirex-product-tree/simplelink-devtools/.metadata/.tirex/img/beehive208s_1.jpg",
+    "packageOrder": 0
+  },
+  {
+    "text": "BPM Microsystems",
+    "type": "folder",
+    "numChildren": 562,
+    "numChildrenLocal": 0,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "url": "/api/resources?path=Development%20Tools/Production%20Programmers&package=com.ti.SIMPLELINK_CC13X0_SDK__2.20.00.38::com.ti.SIMPLELINK_CC13X2_SDK__2.20.00.71::com.ti.SIMPLELINK_MSP432_SDK__2.30.00.14::com.ti.SIMPLELINK_MSP432E4_SDK__2.30.00.14::com.ti.SIMPLELINK_CC26X2_SDK__2.20.00.36::com.ti.SIMPLELINK_CC2640R2_SDK__2.20.00.49::com.ti.SIMPLELINK_CC32XX_SDK__2.30.00.05::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.50.00.62::com.ti.SIMPLELINK_SDK_BLE_PLUGIN__1.40.00.42::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.60.00.07::com.ti.SIMPLELINK_SDK_VOICE_DETECTION_PLUGIN__1.50.00.15::com.ti.SIMPLELINK_SDK_TI_15_4_STACK_PLUGIN__2.20.00.05::com.ti.SIMPLELINK_ZIGBEE_SDK_PLUGIN__2.20.00.06::energia.core__18.0.0::energia.tool.arm-none-eabi-gcc__6.3.1-20170620::energia.tool.ino2cpp__1.0.3::energia.boards.cc13xx__5.20.0::energia.boards.cc3220emt__5.6.2::energia.boards.msp432r__5.6.3::com.ti.WATSON_MSP432E4__1.00.01.01::com.ti.WATSON_CC32XX__1.00.01.01::com.ti.SAIL__1.30.00.02::com.ti.AZURE_CC32XX__2.00.00.07::com.ti.AZURE_MSP432E4__2.00.00.07::com.ti.AWS_CC32XX__2.00.00.09::c2000ware_software_package__1.00.05.00::digital_power_c2000ware_sdk_software_package__1.01.00.00::powerSUITE_software_package__2.02.00.00::com.ti.mmwave_industrial_toolbox__2.5.2::com.ti.mmwave_automotive_toolbox__2.4.1::msp430ware__3.80.05.04::sitara__1.02.00.00::tm4c__2.1.4.178::tirtos_msp43x__2.20.00.06::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::sysbios__6.50.01.12::xdctools__3.50.05.12::com.ti.SIMPLELINK_SDK_NFC_PLUGIN__2.20.00.08::com.ti.AWS_MSP432E4__2.00.00.09",
+    "overviewDescription": "BPM Microsystem Production Programmers: BPM offers socket programmer (2800/F, BP-2x10, BP-1X10), Automated programmer (3610), and In-System programmer (2800ISP).",
+    "overviewImage": "tirex-product-tree/simplelink-devtools/.metadata/.tirex/img/2800_promo_slide1.jpg",
+    "packageOrder": 0
+  },
+  {
+    "text": "DATA IO",
+    "type": "folder",
+    "numChildren": 424,
+    "numChildrenLocal": 0,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "url": "/api/resources?path=Development%20Tools/Production%20Programmers&package=com.ti.SIMPLELINK_CC13X0_SDK__2.20.00.38::com.ti.SIMPLELINK_CC13X2_SDK__2.20.00.71::com.ti.SIMPLELINK_MSP432_SDK__2.30.00.14::com.ti.SIMPLELINK_MSP432E4_SDK__2.30.00.14::com.ti.SIMPLELINK_CC26X2_SDK__2.20.00.36::com.ti.SIMPLELINK_CC2640R2_SDK__2.20.00.49::com.ti.SIMPLELINK_CC32XX_SDK__2.30.00.05::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.50.00.62::com.ti.SIMPLELINK_SDK_BLE_PLUGIN__1.40.00.42::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.60.00.07::com.ti.SIMPLELINK_SDK_VOICE_DETECTION_PLUGIN__1.50.00.15::com.ti.SIMPLELINK_SDK_TI_15_4_STACK_PLUGIN__2.20.00.05::com.ti.SIMPLELINK_ZIGBEE_SDK_PLUGIN__2.20.00.06::energia.core__18.0.0::energia.tool.arm-none-eabi-gcc__6.3.1-20170620::energia.tool.ino2cpp__1.0.3::energia.boards.cc13xx__5.20.0::energia.boards.cc3220emt__5.6.2::energia.boards.msp432r__5.6.3::com.ti.WATSON_MSP432E4__1.00.01.01::com.ti.WATSON_CC32XX__1.00.01.01::com.ti.SAIL__1.30.00.02::com.ti.AZURE_CC32XX__2.00.00.07::com.ti.AZURE_MSP432E4__2.00.00.07::com.ti.AWS_CC32XX__2.00.00.09::c2000ware_software_package__1.00.05.00::digital_power_c2000ware_sdk_software_package__1.01.00.00::powerSUITE_software_package__2.02.00.00::com.ti.mmwave_industrial_toolbox__2.5.2::com.ti.mmwave_automotive_toolbox__2.4.1::msp430ware__3.80.05.04::sitara__1.02.00.00::tm4c__2.1.4.178::tirtos_msp43x__2.20.00.06::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::sysbios__6.50.01.12::xdctools__3.50.05.12::com.ti.SIMPLELINK_SDK_NFC_PLUGIN__2.20.00.08::com.ti.AWS_MSP432E4__2.00.00.09",
+    "overviewDescription": "DATA IO Production Programmers. Data I/O offers socket programmer (FlashPak) and automated programmer (Roadrunner, PSV7000, PS, FLX).",
+    "overviewImage": "tirex-product-tree/simplelink-devtools/.metadata/.tirex/img/dataio.jpg",
+    "packageOrder": 0
+  },
+  {
+    "text": "Hi-Lo Systems",
+    "type": "folder",
+    "numChildren": 426,
+    "numChildrenLocal": 0,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "url": "/api/resources?path=Development%20Tools/Production%20Programmers&package=com.ti.SIMPLELINK_CC13X0_SDK__2.20.00.38::com.ti.SIMPLELINK_CC13X2_SDK__2.20.00.71::com.ti.SIMPLELINK_MSP432_SDK__2.30.00.14::com.ti.SIMPLELINK_MSP432E4_SDK__2.30.00.14::com.ti.SIMPLELINK_CC26X2_SDK__2.20.00.36::com.ti.SIMPLELINK_CC2640R2_SDK__2.20.00.49::com.ti.SIMPLELINK_CC32XX_SDK__2.30.00.05::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.50.00.62::com.ti.SIMPLELINK_SDK_BLE_PLUGIN__1.40.00.42::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.60.00.07::com.ti.SIMPLELINK_SDK_VOICE_DETECTION_PLUGIN__1.50.00.15::com.ti.SIMPLELINK_SDK_TI_15_4_STACK_PLUGIN__2.20.00.05::com.ti.SIMPLELINK_ZIGBEE_SDK_PLUGIN__2.20.00.06::energia.core__18.0.0::energia.tool.arm-none-eabi-gcc__6.3.1-20170620::energia.tool.ino2cpp__1.0.3::energia.boards.cc13xx__5.20.0::energia.boards.cc3220emt__5.6.2::energia.boards.msp432r__5.6.3::com.ti.WATSON_MSP432E4__1.00.01.01::com.ti.WATSON_CC32XX__1.00.01.01::com.ti.SAIL__1.30.00.02::com.ti.AZURE_CC32XX__2.00.00.07::com.ti.AZURE_MSP432E4__2.00.00.07::com.ti.AWS_CC32XX__2.00.00.09::c2000ware_software_package__1.00.05.00::digital_power_c2000ware_sdk_software_package__1.01.00.00::powerSUITE_software_package__2.02.00.00::com.ti.mmwave_industrial_toolbox__2.5.2::com.ti.mmwave_automotive_toolbox__2.4.1::msp430ware__3.80.05.04::sitara__1.02.00.00::tm4c__2.1.4.178::tirtos_msp43x__2.20.00.06::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::sysbios__6.50.01.12::xdctools__3.50.05.12::com.ti.SIMPLELINK_SDK_NFC_PLUGIN__2.20.00.08::com.ti.AWS_MSP432E4__2.00.00.09",
+    "overviewDescription": "Hi-Lo Systems provides Flash programmer with socket programmer (ALL-200/G, FLASH-300) and automated programmer (AT3-300D/310A/32). It supports MSP430F1/2/4/5/6, AFE/FE, G2",
+    "overviewImage": "tirex-product-tree/simplelink-devtools/.metadata/.tirex/img/ALL-300GeMMC-s2.jpg",
+    "packageOrder": 0
+  },
+  {
+    "text": "XELTEK",
+    "type": "folder",
+    "numChildren": 548,
+    "numChildrenLocal": 0,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "url": "/api/resources?path=Development%20Tools/Production%20Programmers&package=com.ti.SIMPLELINK_CC13X0_SDK__2.20.00.38::com.ti.SIMPLELINK_CC13X2_SDK__2.20.00.71::com.ti.SIMPLELINK_MSP432_SDK__2.30.00.14::com.ti.SIMPLELINK_MSP432E4_SDK__2.30.00.14::com.ti.SIMPLELINK_CC26X2_SDK__2.20.00.36::com.ti.SIMPLELINK_CC2640R2_SDK__2.20.00.49::com.ti.SIMPLELINK_CC32XX_SDK__2.30.00.05::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.50.00.62::com.ti.SIMPLELINK_SDK_BLE_PLUGIN__1.40.00.42::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.60.00.07::com.ti.SIMPLELINK_SDK_VOICE_DETECTION_PLUGIN__1.50.00.15::com.ti.SIMPLELINK_SDK_TI_15_4_STACK_PLUGIN__2.20.00.05::com.ti.SIMPLELINK_ZIGBEE_SDK_PLUGIN__2.20.00.06::energia.core__18.0.0::energia.tool.arm-none-eabi-gcc__6.3.1-20170620::energia.tool.ino2cpp__1.0.3::energia.boards.cc13xx__5.20.0::energia.boards.cc3220emt__5.6.2::energia.boards.msp432r__5.6.3::com.ti.WATSON_MSP432E4__1.00.01.01::com.ti.WATSON_CC32XX__1.00.01.01::com.ti.SAIL__1.30.00.02::com.ti.AZURE_CC32XX__2.00.00.07::com.ti.AZURE_MSP432E4__2.00.00.07::com.ti.AWS_CC32XX__2.00.00.09::c2000ware_software_package__1.00.05.00::digital_power_c2000ware_sdk_software_package__1.01.00.00::powerSUITE_software_package__2.02.00.00::com.ti.mmwave_industrial_toolbox__2.5.2::com.ti.mmwave_automotive_toolbox__2.4.1::msp430ware__3.80.05.04::sitara__1.02.00.00::tm4c__2.1.4.178::tirtos_msp43x__2.20.00.06::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::sysbios__6.50.01.12::xdctools__3.50.05.12::com.ti.SIMPLELINK_SDK_NFC_PLUGIN__2.20.00.08::com.ti.AWS_MSP432E4__2.00.00.09",
+    "overviewDescription": "XELTEK Production Programmers. It provides In-System programmer (IS0x/XSP01) and Socket programmer (SuperPro series). Supported MCU devices: TI: MSP430F1/2/5, MSP430AFE/FG/FR, MSP430G2, TMS320F280x (Socket), LM4F (Socket).",
+    "overviewImage": "tirex-product-tree/simplelink-devtools/.metadata/.tirex/img/sp7100_front.jpg",
+    "packageOrder": 0
+  }
+]

@@ -1,10 +1,10 @@
 ******************************************************************************
                   MSP430 Linker PC v18.1.2                     
 ******************************************************************************
->> Linked Sat Oct  6 14:30:19 2018
+>> Linked Sat Oct 27 13:56:32 2018
 
 OUTPUT FILE NAME:   <test.out>
-ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00001826
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 000011fa
 
 
 MEMORY CONFIGURATION
@@ -14,10 +14,10 @@ MEMORY CONFIGURATION
   SFR                   00000000   00000010  00000000  00000010  RWIX
   PERIPHERALS_8BIT      00000010   000000f0  00000000  000000f0  RWIX
   PERIPHERALS_16BIT     00000100   00000100  00000000  00000100  RWIX
-  RAM                   00000200   00000800  00000058  000007a8  RWIX
+  RAM                   00000200   00000800  00000051  000007af  RWIX
   INFOB                 00001000   00000080  00000000  00000080  RWIX
   INFOA                 00001080   00000080  00000000  00000080  RWIX
-  FLASH                 00001100   0000eee0  000007ca  0000e716  RWIX
+  FLASH                 00001100   0000eee0  00000237  0000eca9  RWIX
   INT00                 0000ffe0   00000002  00000002  00000000  RWIX
   INT01                 0000ffe2   00000002  00000002  00000000  RWIX
   INT02                 0000ffe4   00000002  00000002  00000000  RWIX
@@ -41,65 +41,34 @@ SECTION ALLOCATION MAP
  output                                  attributes/
 section   page    origin      length       input sections
 --------  ----  ----------  ----------   ----------------
-.bss       0    00000200    00000008     UNINITIALIZED
-                  00000200    00000001     (.common:day)
-                  00000201    00000001     (.common:flag)
-                  00000202    00000001     (.common:hour)
-                  00000203    00000001     (.common:minute)
-                  00000204    00000001     (.common:month)
-                  00000205    00000001     (.common:second)
-                  00000206    00000001     (.common:week)
-                  00000207    00000001     (.common:year)
+.bss       0    00000200    00000001     UNINITIALIZED
+                  00000200    00000001     (.common:counter)
 
 .stack     0    000009b0    00000050     UNINITIALIZED
                   000009b0    00000002     rts430_eabi.lib : boot.c.obj (.stack)
                   000009b2    0000004e     --HOLE--
 
-.text      0    00001100    000007c0     
-                  00001100    0000013a     main.obj (.text:write_week)
-                  0000123a    0000008a     main.obj (.text:init_1302)
-                  000012c4    00000076     main.obj (.text:LcdReset)
-                  0000133a    0000006a     main.obj (.text:main)
-                  000013a4    00000042     rts430_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
-                  000013e6    0000003e     main.obj (.text:write_day)
-                  00001424    0000003e     main.obj (.text:write_hour)
-                  00001462    0000003e     main.obj (.text:write_minute)
-                  000014a0    0000003e     main.obj (.text:write_month)
-                  000014de    0000003e     main.obj (.text:write_second)
-                  0000151c    0000003e     main.obj (.text:write_year)
-                  0000155a    0000003c     main.obj (.text:Write_Byte)
-                  00001596    0000003a     main.obj (.text:Read_Byte)
-                  000015d0    00000034     main.obj (.text:WaitForEnable)
-                  00001604    0000002c     rts430_eabi.lib : asr16.asm.obj (.text)
-                  00001630    0000002c                     : div16s.asm.obj (.text)
-                  0000165c    0000002a     main.obj (.text:write_com)
-                  00001686    0000002a     main.obj (.text:write_data)
-                  000016b0    00000028     main.obj (.text:readday)
-                  000016d8    00000028     main.obj (.text:readhour)
-                  00001700    00000028     main.obj (.text:readminute)
-                  00001728    00000028     main.obj (.text:readmonth)
-                  00001750    00000028     main.obj (.text:readsecond)
-                  00001778    00000028     main.obj (.text:readweek)
-                  000017a0    00000024     main.obj (.text:Write_dat)
-                  000017c4    00000024     main.obj (.text:readyear)
-                  000017e8    00000020     main.obj (.text:read_1302add)
-                  00001808    0000001e     main.obj (.text:readtime)
-                  00001826    0000001c     rts430_eabi.lib : boot.c.obj (.text:_c_int00_noargs)
-                  00001842    00000016                     : div16u.asm.obj (.text)
-                  00001858    00000014                     : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
-                  0000186c    00000014                     : mult16_hw.asm.obj (.text)
-                  00001880    00000010     main.obj (.text:delay)
-                  00001890    00000010     rts430_eabi.lib : epilog.asm.obj (.text)
-                  000018a0    0000000c     main.obj (.text:Write1602)
-                  000018ac    00000008     rts430_eabi.lib : isr_trap.asm.obj (.text:_isr:__TI_ISR_TRAP)
-                  000018b4    00000006                     : exit.c.obj (.text:abort)
-                  000018ba    00000004                     : pre_init.c.obj (.text:_system_pre_init)
-                  000018be    00000002                     : startup.c.obj (.text:_system_post_cinit)
+.text      0    00001100    00000154     
+                  00001100    00000054     main.obj (.text:Play_Song)
+                  00001154    00000046     main.obj (.text:main)
+                  0000119a    00000042     rts430_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  000011dc    0000001e     main.obj (.text:Delay_Nms)
+                  000011fa    0000001c     rts430_eabi.lib : boot.c.obj (.text:_c_int00_noargs)
+                  00001216    00000014                     : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
+                  0000122a    00000010                     : epilog.asm.obj (.text)
+                  0000123a    00000008                     : isr_trap.asm.obj (.text:_isr:__TI_ISR_TRAP)
+                  00001242    00000006     main.obj (.text:TimerA_ISR)
+                  00001248    00000006     rts430_eabi.lib : exit.c.obj (.text:abort)
+                  0000124e    00000004                     : pre_init.c.obj (.text:_system_pre_init)
+                  00001252    00000002                     : startup.c.obj (.text:_system_post_cinit)
 
-.cinit     0    000018c0    0000000a     
-                  000018c0    00000004     (.cinit..bss.load) [load image, compression = zero_init]
-                  000018c4    00000002     (__TI_handler_table)
-                  000018c6    00000004     (__TI_cinit_table)
+.const     0    00001254    000000d9     
+                  00001254    000000d9     main.obj (.const:.string:SONG)
+
+.cinit     0    0000132e    0000000a     
+                  0000132e    00000004     (.cinit..bss.load) [load image, compression = zero_init]
+                  00001332    00000002     (__TI_handler_table)
+                  00001334    00000004     (__TI_cinit_table)
 
 .binit     0    00001100    00000000     
 
@@ -125,7 +94,7 @@ TIMERA1    0    0000ffea    00000002
                   0000ffea    00000002     rts430_eabi.lib : int05.asm.obj (.int05)
 
 TIMERA0    0    0000ffec    00000002     
-                  0000ffec    00000002     rts430_eabi.lib : int06.asm.obj (.int06)
+                  0000ffec    00000002     main.obj (.int06)
 
 ADC12      0    0000ffee    00000002     
                   0000ffee    00000002     rts430_eabi.lib : int07.asm.obj (.int07)
@@ -160,18 +129,14 @@ MODULE SUMMARY
        Module                 code   ro data   rw data
        ------                 ----   -------   -------
     .\
-       main.obj               1704   0         8      
+       main.obj               190    219       1      
     +--+----------------------+------+---------+---------+
-       Total:                 1704   0         8      
+       Total:                 190    219       1      
                                                       
     C:\ti\ccsv8\tools\compiler\ti-cgt-msp430_18.1.2.LTS\lib\rts430_eabi.lib
        autoinit.c.obj         66     0         0      
-       asr16.asm.obj          44     0         0      
-       div16s.asm.obj         44     0         0      
        boot.c.obj             28     2         0      
-       div16u.asm.obj         22     0         0      
        copy_zero_init.c.obj   20     0         0      
-       mult16_hw.asm.obj      20     0         0      
        epilog.asm.obj         16     0         0      
        isr_trap.asm.obj       8      0         0      
        exit.c.obj             6      0         0      
@@ -182,7 +147,6 @@ MODULE SUMMARY
        int03.asm.obj          0      2         0      
        int04.asm.obj          0      2         0      
        int05.asm.obj          0      2         0      
-       int06.asm.obj          0      2         0      
        int07.asm.obj          0      2         0      
        int08.asm.obj          0      2         0      
        int09.asm.obj          0      2         0      
@@ -193,23 +157,23 @@ MODULE SUMMARY
        int14.asm.obj          0      2         0      
        startup.c.obj          2      0         0      
     +--+----------------------+------+---------+---------+
-       Total:                 280    32        0      
+       Total:                 150    30        0      
                                                       
        Stack:                 0      0         80     
        Linker Generated:      0      10        0      
     +--+----------------------+------+---------+---------+
-       Grand Total:           1984   42        88     
+       Grand Total:           340    259       81     
 
 
 LINKER GENERATED COPY TABLES
 
-__TI_cinit_table @ 000018c6 records: 1, size/record: 4, table size: 4
-	.bss: load addr=000018c0, load size=00000004 bytes, run addr=00000200, run size=00000008 bytes, compression=zero_init
+__TI_cinit_table @ 00001334 records: 1, size/record: 4, table size: 4
+	.bss: load addr=0000132e, load size=00000004 bytes, run addr=00000200, run size=00000001 bytes, compression=zero_init
 
 
 LINKER GENERATED HANDLER TABLE
 
-__TI_handler_table @ 000018c4 records: 1, size/record: 2, table size: 2
+__TI_handler_table @ 00001332 records: 1, size/record: 2, table size: 2
 	index: 0, handler: __TI_zero_init
 
 
@@ -256,7 +220,7 @@ address   name
 00000152  ADC12MEM9                     
 00000057  BCSCTL1                       
 00000058  BCSCTL2                       
-000018b4  C$$EXIT                       
+00001248  C$$EXIT                       
 00000059  CACTL1                        
 0000005a  CACTL2                        
 0000005b  CAPD                          
@@ -279,6 +243,7 @@ address   name
 000001f6  DMA2SZ                        
 00000122  DMACTL0                       
 00000124  DMACTL1                       
+000011dc  Delay_Nms                     
 00000128  FCTL1                         
 0000012a  FCTL2                         
 0000012c  FCTL3                         
@@ -299,7 +264,6 @@ address   name
 00000001  IE2                           
 00000002  IFG1                          
 00000003  IFG2                          
-000012c4  LcdReset                      
 00000134  MAC                           
 00000136  MACS                          
 00000004  ME1                           
@@ -337,9 +301,10 @@ address   name
 00000034  P6IN                          
 00000035  P6OUT                         
 00000037  P6SEL                         
+00001100  Play_Song                     
 0000013c  RESHI                         
 0000013a  RESLO                         
-00001596  Read_Byte                     
+00001254  SONG                          
 0000013e  SUMEXT                        
 00000055  SVSCTL                        
 00000172  TACCR0                        
@@ -368,6 +333,7 @@ address   name
 00000180  TBCTL                         
 0000011e  TBIV                          
 00000190  TBR                           
+00001242  TimerA_ISR                    
 00000074  U0BR0                         
 00000075  U0BR1                         
 00000070  U0CTL                         
@@ -385,18 +351,14 @@ address   name
 00000079  U1TCTL                        
 0000007f  U1TXBUF                       
 00000120  WDTCTL                        
-000015d0  WaitForEnable                 
-000018a0  Write1602                     
-0000155a  Write_Byte                    
-000017a0  Write_dat                     
 00000a00  __STACK_END                   
 00000050  __STACK_SIZE                  
-000018c6  __TI_CINIT_Base               
-000018ca  __TI_CINIT_Limit              
-000018c4  __TI_Handler_Table_Base       
-000018c6  __TI_Handler_Table_Limit      
-000018ac  __TI_ISR_TRAP                 
-000013a4  __TI_auto_init_nobinit_nopinit
+00001334  __TI_CINIT_Base               
+00001338  __TI_CINIT_Limit              
+00001332  __TI_Handler_Table_Base       
+00001334  __TI_Handler_Table_Limit      
+0000123a  __TI_ISR_TRAP                 
+0000119a  __TI_auto_init_nobinit_nopinit
 0000ffe0  __TI_int00                    
 0000ffe2  __TI_int01                    
 0000ffe4  __TI_int02                    
@@ -415,71 +377,23 @@ address   name
 ffffffff  __TI_pprof_out_hndl           
 ffffffff  __TI_prof_data_size           
 ffffffff  __TI_prof_data_start          
-00001858  __TI_zero_init_nomemset       
+00001216  __TI_zero_init_nomemset       
 ffffffff  __c_args__                    
-00001630  __mspabi_divi                 
-00001842  __mspabi_divu                 
-0000189c  __mspabi_func_epilog_1        
-0000189a  __mspabi_func_epilog_2        
-00001898  __mspabi_func_epilog_3        
-00001896  __mspabi_func_epilog_4        
-00001894  __mspabi_func_epilog_5        
-00001892  __mspabi_func_epilog_6        
-00001890  __mspabi_func_epilog_7        
-0000186c  __mspabi_mpyi_hw              
-00001630  __mspabi_remi                 
-00001842  __mspabi_remu                 
-00001604  __mspabi_srai                 
-0000162c  __mspabi_srai_1               
-0000161a  __mspabi_srai_10              
-00001618  __mspabi_srai_11              
-00001616  __mspabi_srai_12              
-00001614  __mspabi_srai_13              
-00001612  __mspabi_srai_14              
-00001610  __mspabi_srai_15              
-0000162a  __mspabi_srai_2               
-00001628  __mspabi_srai_3               
-00001626  __mspabi_srai_4               
-00001624  __mspabi_srai_5               
-00001622  __mspabi_srai_6               
-00001620  __mspabi_srai_7               
-0000161e  __mspabi_srai_8               
-0000161c  __mspabi_srai_9               
-00001826  _c_int00_noargs               
+00001236  __mspabi_func_epilog_1        
+00001234  __mspabi_func_epilog_2        
+00001232  __mspabi_func_epilog_3        
+00001230  __mspabi_func_epilog_4        
+0000122e  __mspabi_func_epilog_5        
+0000122c  __mspabi_func_epilog_6        
+0000122a  __mspabi_func_epilog_7        
+000011fa  _c_int00_noargs               
 0000fffe  _reset_vector                 
 000009b0  _stack                        
-000018be  _system_post_cinit            
-000018ba  _system_pre_init              
-000018b4  abort                         
-00000200  day                           
-00001880  delay                         
-00000201  flag                          
-00000202  hour                          
-0000123a  init_1302                     
-0000133a  main                          
-00000203  minute                        
-00000204  month                         
-000017e8  read_1302add                  
-000016b0  readday                       
-000016d8  readhour                      
-00001700  readminute                    
-00001728  readmonth                     
-00001750  readsecond                    
-00001808  readtime                      
-00001778  readweek                      
-000017c4  readyear                      
-00000205  second                        
-00000206  week                          
-0000165c  write_com                     
-00001686  write_data                    
-000013e6  write_day                     
-00001424  write_hour                    
-00001462  write_minute                  
-000014a0  write_month                   
-000014de  write_second                  
-00001100  write_week                    
-0000151c  write_year                    
-00000207  year                          
+00001252  _system_post_cinit            
+0000124e  _system_pre_init              
+00001248  abort                         
+00000200  counter                       
+00001154  main                          
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
@@ -652,83 +566,33 @@ address   name
 000001f2  DMA2SA                        
 000001f4  DMA2DA                        
 000001f6  DMA2SZ                        
-00000200  day                           
-00000201  flag                          
-00000202  hour                          
-00000203  minute                        
-00000204  month                         
-00000205  second                        
-00000206  week                          
-00000207  year                          
+00000200  counter                       
 000009b0  _stack                        
 00000a00  __STACK_END                   
-00001100  write_week                    
-0000123a  init_1302                     
-000012c4  LcdReset                      
-0000133a  main                          
-000013a4  __TI_auto_init_nobinit_nopinit
-000013e6  write_day                     
-00001424  write_hour                    
-00001462  write_minute                  
-000014a0  write_month                   
-000014de  write_second                  
-0000151c  write_year                    
-0000155a  Write_Byte                    
-00001596  Read_Byte                     
-000015d0  WaitForEnable                 
-00001604  __mspabi_srai                 
-00001610  __mspabi_srai_15              
-00001612  __mspabi_srai_14              
-00001614  __mspabi_srai_13              
-00001616  __mspabi_srai_12              
-00001618  __mspabi_srai_11              
-0000161a  __mspabi_srai_10              
-0000161c  __mspabi_srai_9               
-0000161e  __mspabi_srai_8               
-00001620  __mspabi_srai_7               
-00001622  __mspabi_srai_6               
-00001624  __mspabi_srai_5               
-00001626  __mspabi_srai_4               
-00001628  __mspabi_srai_3               
-0000162a  __mspabi_srai_2               
-0000162c  __mspabi_srai_1               
-00001630  __mspabi_divi                 
-00001630  __mspabi_remi                 
-0000165c  write_com                     
-00001686  write_data                    
-000016b0  readday                       
-000016d8  readhour                      
-00001700  readminute                    
-00001728  readmonth                     
-00001750  readsecond                    
-00001778  readweek                      
-000017a0  Write_dat                     
-000017c4  readyear                      
-000017e8  read_1302add                  
-00001808  readtime                      
-00001826  _c_int00_noargs               
-00001842  __mspabi_divu                 
-00001842  __mspabi_remu                 
-00001858  __TI_zero_init_nomemset       
-0000186c  __mspabi_mpyi_hw              
-00001880  delay                         
-00001890  __mspabi_func_epilog_7        
-00001892  __mspabi_func_epilog_6        
-00001894  __mspabi_func_epilog_5        
-00001896  __mspabi_func_epilog_4        
-00001898  __mspabi_func_epilog_3        
-0000189a  __mspabi_func_epilog_2        
-0000189c  __mspabi_func_epilog_1        
-000018a0  Write1602                     
-000018ac  __TI_ISR_TRAP                 
-000018b4  C$$EXIT                       
-000018b4  abort                         
-000018ba  _system_pre_init              
-000018be  _system_post_cinit            
-000018c4  __TI_Handler_Table_Base       
-000018c6  __TI_CINIT_Base               
-000018c6  __TI_Handler_Table_Limit      
-000018ca  __TI_CINIT_Limit              
+00001100  Play_Song                     
+00001154  main                          
+0000119a  __TI_auto_init_nobinit_nopinit
+000011dc  Delay_Nms                     
+000011fa  _c_int00_noargs               
+00001216  __TI_zero_init_nomemset       
+0000122a  __mspabi_func_epilog_7        
+0000122c  __mspabi_func_epilog_6        
+0000122e  __mspabi_func_epilog_5        
+00001230  __mspabi_func_epilog_4        
+00001232  __mspabi_func_epilog_3        
+00001234  __mspabi_func_epilog_2        
+00001236  __mspabi_func_epilog_1        
+0000123a  __TI_ISR_TRAP                 
+00001242  TimerA_ISR                    
+00001248  C$$EXIT                       
+00001248  abort                         
+0000124e  _system_pre_init              
+00001252  _system_post_cinit            
+00001254  SONG                          
+00001332  __TI_Handler_Table_Base       
+00001334  __TI_CINIT_Base               
+00001334  __TI_Handler_Table_Limit      
+00001338  __TI_CINIT_Limit              
 0000ffe0  __TI_int00                    
 0000ffe2  __TI_int01                    
 0000ffe4  __TI_int02                    
@@ -750,4 +614,4 @@ ffffffff  __TI_prof_data_size
 ffffffff  __TI_prof_data_start          
 ffffffff  __c_args__                    
 
-[263 symbols]
+[213 symbols]

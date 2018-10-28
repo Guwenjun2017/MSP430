@@ -1,458 +1,161 @@
-#include<msp430f169.h>
-typedef unsigned char uchar;
-typedef unsigned int  uint;
-/**************ºê¶¨Òå***************/
-#define DataDir  P4DIR
-#define DataPort  P4OUT
-#define Busy  0x80
-#define CtrlDir     P5DIR
-#define CLR_RS P5OUT&=~BIT5;    //RS = P3.0
-#define SET_RS P5OUT|=BIT5;
-#define CLR_RW P5OUT&=~BIT6; //RW = P3.1
-#define SET_RW P5OUT|=BIT6;
-#define CLR_EN P5OUT&=~BIT7; //EN = P3.2
-#define SET_EN P5OUT|=BIT7;
-/**************ºê¶¨Òå***************/
-#define DS_RST  BIT0 //DS_RST = P2.7
-#define DS_SCL  BIT1  //DS_SCL = P2.5
-#define DS_SDA  BIT2  //DS_SDA = P2.6
+//ï¿½ï¿½×£ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Ä±ï¿½ï¿½ï¿½
 
-#define DS_RST_IN P5DIR &= ~DS_RST
-#define DS_RST_OUT P5DIR |= DS_RST
-#define DS_RST0 P5OUT &= ~DS_RST
-#define DS_RST1 P5OUT |= DS_RST
 
-#define DS_SCL_IN P5DIR &= ~DS_SCL
-#define DS_SCL_OUT P5DIR |= DS_SCL
-#define DS_SCL0 P5OUT &= ~DS_SCL
-#define DS_SCL1 P5OUT |= DS_SCL
-
-#define DS_SDA_IN P5DIR &= ~DS_SDA
-#define DS_SDA_OUT P5DIR |= DS_SDA
-#define DS_SDA0 P5OUT &= ~DS_SDA
-#define DS_SDA1 P5OUT |= DS_SDA
-#define DS_SDA_BIT P5IN & DS_SDA
-uchar flag;//¶¨ÒåÒ»¸ö¶Á±êÖ¾Î»
-uchar second,minute,hour,week,day,month,year;//Ãë¡¢·Ö¡¢Ê±¡¢ÐÇÆÚ¡¢ÈÕ¡¢ÔÂ¡¢Äê
-/*******************************************
-º¯ÊýÃû³Æ£ºdelay
-¹¦    ÄÜ£ºÑÓÊ±Ò»¶ÎÊ±¼ä
-²Î    Êý£ºtime--ÑÓÊ±³¤¶È
-********************************************/
-void delay(uint time)
+/*********************************************
+ï¿½ï¿½ï¿½ï¿½ï¿½Ü£ï¿½MCUï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×£ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½
+----------------------------------------------
+ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+*********************************************/
+#include<msp430x14x.h>
+#include "music.h"
+#include "delay.h"
+const unsigned char seven[]=
 {
-    uint i;
-    for(i = 0;i < time;i++)     _NOP();
-}
-/*******************************************
-º¯ÊýÃû³Æ£ºDelay5ms ¹¦    ÄÜ£ºÑÓÊ±Ô¼5ms
-********************************************/
-void Delay5ms(void)
+     0x26,0x20,0x20,
+};
+const unsigned char SONG[]=
 {
-    uint i=40000;
-    while (i != 0)
+    0x26,0x20,0x20,0x20,0x20,0x20,0x26,0x10,0x20,
+    0x10,0x20,0x80,0x26,0x20,0x30,0x20,0x30,0x20,
+    0x39,0x10,0x30,0x10,0x30,0x80,0x26,0x0,0x20,
+    0x20,0x20,0x20,0x1c,0x20,0x20,0x80,0x2b,0x20,
+    0x26,0x20,0x20,0x20,0x2b,0x10,0x26,0x10,0x2b,
+    0x80,0x26,0x20,0x30,0x20,0x30,0x20,0x39,0x10,
+    0x26,0x10,0x26,0x60,0x40,0x10,0x39,0x10,0x26,
+    0x20,0x30,0x20,0x30,0x20,0x39,0x10,0x6,0x10,
+    0x26,0x80,0x26,0x20,0x2b,0x10,0x2b,0x10,0x2b,
+    0x20,0x30,0x10,0x39,0x10,0x26,0x10,0x2b,0x10,
+    0x2b,0x20,0x2b,0x40,0x40,0x20,0x20,0x10,0x20,
+    0x10,0x2b,0x10,0x26,0x30,0x30,0x80,0x18,0x20,
+    0x18,0x20,0x26,0x20,0x20,0x20,0x20,0x40,0x26,
+    0x20,0x2b,0x20,0x30,0x20,0x30,0x20,0x1c,0x20,
+    0x20,0x20,0x20,0x80,0x1c,0x20,0x1c,0x20,0x1c,
+    0x20,0x30,0x20,0x30,0x60,0x39,0x10,0x30,0x10,
+    0x20,0x20,0x2b,0x10,0x26,0x10,0x2b,0x10,0x26,
+    0x10,0x26,0x10,0x2b,0x10,0x2b,0x80,0x18,0x20,
+    0x18,0x20,0x26,0x20,0x20,0x20,0x20,0x60,0x26,
+    0x10,0x2b,0x20,0x30,0x20,0x30,0x20,0x1c,0x20,
+    0x20,0x20,0x20,0x80,0x26,0x20,0x30,0x10,0x30,
+    0x10,0x30,0x20,0x39,0x20,0x26,0x10,0x2b,0x10,
+    0x2b,0x20,0x2b,0x40,0x40,0x10,0x40,0x10,0x20,
+    0x10,0x20,0x10,0x2b,0x10,0x26,0x30,0x30,0x80,
+    0x00
+};
+#define   Buzzer        BIT7
+#define   Buzzer_Port   P6OUT
+#define   Buzzer_DIR    P6DIR
+#define uchar unsigned char
+uchar counter;
+void Play_Song(void);
+void Delay_Nms(uchar n)
+{
+    uchar i,j;
+
+    for( i = 0;i < n; i++ )
     {
-        i--;
+        for( j = 0;j < 3;j++ )
+          _NOP();
     }
 }
-/*******************************************
-º¯ÊýÃû³Æ£ºWaitForEnable
-¹¦    ÄÜ£ºµÈ´ý1602Òº¾§Íê³ÉÄÚ²¿²Ù×÷
-********************************************/
-void WaitForEnable(void)
-{
-    P4DIR &= 0x00;  //½«P4¿ÚÇÐ»»ÎªÊäÈë×´Ì¬
-    CLR_RS;
-    SET_RW;
-    _NOP();
-    SET_EN;
-    _NOP();
-    _NOP();
 
-    while((P4IN & Busy)!=0);  //¼ì²âÃ¦±êÖ¾
-    CLR_EN;
-    P4DIR |= 0xFF;  //½«P4¿ÚÇÐ»»ÎªÊä³ö×´Ì¬
-}
-/*******************************************
-º¯ÊýÃû³Æ£ºwrite_com
-¹¦    ÄÜ£ºÏòÒº¾§Ä£¿éÐ´ÈëÃüÁî
-********************************************/
-void write_com(uchar cmd)
-{
-    WaitForEnable();   // ¼ì²âÃ¦ÐÅºÅ?
-
-    CLR_RS;
-    CLR_RW;
-    _NOP();
-    DataPort = cmd;             //½«ÃüÁî×ÖÐ´ÈëÊý¾Ý¶Ë¿Ú
-    _NOP();
-
-    SET_EN;                     //²úÉúÊ¹ÄÜÂö³åÐÅºÅ
-    _NOP();
-    _NOP();
-    CLR_EN;
-}
-
-/*******************************************
-º¯ÊýÃû³Æ£ºwrite_data
-¹¦    ÄÜ£ºÏòÒº¾§ÏÔÊ¾µÄµ±Ç°µØÖ·Ð´ÈëÏÔÊ¾Êý¾Ý
-²Î    Êý£ºdata--ÏÔÊ¾×Ö·ûÊý¾Ý
-·µ»ØÖµ  £ºÎÞ
-********************************************/
-void write_data( uchar data )
-{
-    WaitForEnable();        //µÈ´ýÒº¾§²»Ã¦
-    SET_RS;
-    CLR_RW;
-    _NOP();
-    DataPort = data;        //½«ÏÔÊ¾Êý¾ÝÐ´ÈëÊý¾Ý¶Ë¿Ú
-    _NOP();
-    SET_EN;                 //²úÉúÊ¹ÄÜÂö³åÐÅºÅ
-    _NOP();
-    _NOP();
-    CLR_EN;
-}
-void Write1602(uchar add,uchar dat)
-{
- write_com(add);
- write_data(dat);
-}
-
-void zifuchuan(uchar *ch)
-{
-  while(*ch!=0)
-  write_data(*ch++);
-  Delay5ms();
-}
-/*******************************************
-º¯ÊýÃû³Æ£ºLcdReset
-¹¦    ÄÜ£º¶Ô1602Òº¾§Ä£¿é½øÐÐ¸´Î»²Ù×÷
-********************************************/
-void LcdReset(void)
-{
-    CtrlDir |= 0x07;  //¿ØÖÆÏß¶Ë¿ÚÉèÎªÊä³ö×´Ì¬
-    DataDir  = 0xFF;  //Êý¾Ý¶Ë¿ÚÉèÎªÊä³ö×´Ì¬
-
-    write_com(0x38);//¹æ¶¨µÄ¸´Î»²Ù×÷
-    Delay5ms();
-    write_com(0x38);
-    Delay5ms();
-    write_com(0x38);
-    Delay5ms();
-    write_com(0x38);//ÏÔÊ¾Ä£Ê½ÉèÖÃ
-    write_com(0x06);//Ð´×Ö·ûÊ±ÕûÌå²»ÒÆ¶¯
-    write_com(0x0c);//ÏÔÊ¾¿ª£¬²»¿ªÓÎ±ê£¬²»ÉÁË¸
-     write_com(0x01);//ÏÔÊ¾ÇåÆÁ
-
-Write1602(0x80,'2');
-Write1602(0x81,'0');
-Write1602(0x80+4,'-');
-Write1602(0x80+7,'-');
-Write1602(0x80+0x40+5,':');
-Write1602(0x80+0x40+8,':');
-
-
-}
-/*******************************************
-º¯ÊýÃû³Æ£ºReset_DS1302
-¹¦    ÄÜ£º¶ÔDS1302½øÐÐ¸´Î»²Ù×÷
-********************************************/
-void Reset_DS1302(void)
-{
-    DS_RST_OUT;  //RST¶ÔÓ¦µÄIOÉèÖÃÎªÊä³ö×´Ì¬
-    DS_SCL_OUT;  //SCLK¶ÔÓ¦µÄIOÉèÖÃÎªÊä³ö×´Ì¬
-    DS_SCL0;     //SCLK=0
-    DS_RST0;     //RST=0
-    delay(10);
-    DS_SCL1;    //SCLK=1
-}
-/*******************************************
-º¯ÊýÃû³Æ£ºWrite1Byte
-¹¦    ÄÜ£º¶ÔDS1302Ð´Èë1¸ö×Ö½ÚµÄÊý¾Ý
-********************************************/
-void Write_Byte(uchar wdata)
+/***************ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½****************/
+void main(void)
 {
     uchar i;
-    DS_SDA_OUT;  //SDA¶ÔÓ¦µÄIOÉèÖÃÎªÊä³ö×´Ì¬
-    DS_RST1;  //REST=1;
-    for(i = 8; i > 0; i--)
+
+    WDTCTL = WDTPW + WDTHOLD;                 //ï¿½Ø±Õ¿ï¿½ï¿½Å¹ï¿½
+    /*------Ñ¡ï¿½ï¿½ÏµÍ³ï¿½ï¿½Ê±ï¿½ï¿½Îª8MHz-------*/
+    BCSCTL1 &= ~XT2OFF;                       // ï¿½ï¿½XT2ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    do
     {
-        if(wdata&0x01)
-         DS_SDA1;
+        IFG1 &= ~OFIFG;                       //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½Ü±ï¿½Ö¾
+        for (i = 0xFF; i > 0; i--);           // ï¿½È´ï¿½8MHzï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    }
+    while ((IFG1 & OFIFG));                   // ï¿½ï¿½ï¿½ï¿½Ê§Ð§ï¿½ï¿½Ö¾ï¿½ï¿½È»ï¿½ï¿½ï¿½Ú£ï¿½
+    BCSCTL2 |= SELM_2 + SELS;                 //ï¿½ï¿½Ê±ï¿½ÓºÍ´ï¿½Ê±ï¿½Ó¶ï¿½Ñ¡ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½
+
+    //BoardConfig(0xf8);                        //ï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½Ü¡ï¿½ï¿½ï¿½Ë®ï¿½Æ¡ï¿½ï¿½ï¿½Æ½×ªï¿½ï¿½
+
+    //ï¿½ï¿½ï¿½Ã¶ï¿½Ê±ï¿½ï¿½AÃ¿10msï¿½Ð¶ï¿½Ò»ï¿½ï¿½
+    TACTL |= TASSEL_2 + ID_3;   //ï¿½ï¿½ï¿½ï¿½MCLKï¿½ï¿½8ï¿½ï¿½Æµ-->1000 000Hz
+    CCTL0 = CCIE;   //ï¿½ï¿½ï¿½ï¿½CCR0ï¿½Ð¶ï¿½Ê¹ï¿½ï¿½
+    CCR0 = 10000;
+    //ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½IOï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½
+    Buzzer_DIR |= Buzzer;
+    //ï¿½ï¿½È«ï¿½ï¿½ï¿½Ð¶ï¿½
+    _EINT();
+    //Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    while(1)
+    {
+        Play_Song();
+    }
+}
+
+/*******************************************
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ£ï¿½TimerA_ISR
+ï¿½ï¿½    ï¿½Ü£ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Aï¿½ï¿½ï¿½Ð¶Ï·ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½    ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½Öµ  ï¿½ï¿½ï¿½ï¿½
+********************************************/
+#pragma vector = TIMERA0_VECTOR
+__interrupt void TimerA_ISR(void)
+{
+    counter++;
+}
+/*******************************************
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ£ï¿½Delay_Nms
+ï¿½ï¿½    ï¿½Ü£ï¿½ï¿½ï¿½Ê±Nï¿½ï¿½msï¿½Äºï¿½ï¿½ï¿½
+ï¿½ï¿½    ï¿½ï¿½ï¿½ï¿½n--ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½Öµ  ï¿½ï¿½ï¿½ï¿½
+********************************************/
+//void Delay_Nms(uchar n)
+//{
+//    uchar i,j;
+//
+//    for( i = 0;i < n; i++ )
+//    {
+//        for( j = 0;j < 3;j++ )
+//          _NOP();
+//    }
+//}
+/*******************************************
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ£ï¿½Play_Song
+ï¿½ï¿½    ï¿½Ü£ï¿½ï¿½ï¿½ï¿½Å¡ï¿½×£ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½    ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½Öµ  ï¿½ï¿½ï¿½ï¿½
+********************************************/
+void Play_Song(void)
+{
+    uchar Temp1,Temp2;
+    uchar addr = 0;
+
+    counter = 0; //ï¿½Ð¶Ï¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0
+    while(1)
+    {
+        Temp1 = SONG[addr++];
+        if ( Temp1 == 0xFF )        //ï¿½ï¿½Ö¹ï¿½ï¿½
+        {
+            TACTL &=~MC_1;          //Í£Ö¹ï¿½ï¿½ï¿½ï¿½
+            Delay_Nms(100);
+        }
+        else if ( Temp1 == 0x00 )   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        {
+            return;
+        }
         else
-        DS_SDA0;
-        DS_SCL0;
-        delay(10);
-        DS_SCL1;
-        delay(10);
-        wdata >>= 1;
+        {
+            Temp2 = SONG[addr++];
+            TACTL |=MC_1;           //ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
+            while(1)
+            {
+                Buzzer_Port ^= Buzzer;    //Ã¿ï¿½ï¿½Temp1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Îµï¿½Æ½ï¿½ï¿½ï¿½Î³ï¿½ï¿½ï¿½Æµï¿½ï¿½
+                Delay_Nms(Temp1);         //Temp1Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                if ( Temp2 == counter )   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ä£¬ï¿½É½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½zc
+                {
+                    counter = 0;
+                    break;
+                }
+            }
+        }
     }
 }
-/*******************************************
-º¯ÊýÃû³Æ£ºRead1Byte
-¹¦    ÄÜ£º´ÓDS1302¶Á³ö1¸ö×Ö½ÚµÄÊý¾Ý
-********************************************/
-uchar Read_Byte()
-{
-    uchar i;
-    uchar rdata = 0X00;
-    DS_SDA_IN;  //SDA¶ÔÓ¦µÄIOÉèÖÃÎªÊäÈë×´Ì¬
-    DS_RST1;    //REST=1;
-    for(i = 8; i > 0; i--)
-    {
-        DS_SCL1;
-        delay(10);
-        DS_SCL0;
-        delay(10);
-        rdata >>= 1;
-        if(DS_SDA_BIT)
-        rdata |= 0x80;
-    }
-
-    return(rdata);
-}
-/*******************************************
-º¯ÊýÃû³Æ£ºWrite_dat
-¹¦    ÄÜ£ºÏòÄ³¸ö¼Ä´æÆ÷Ð´ÈëÒ»¸ö×Ö½ÚÊý¾Ý
-²Î    Êý£ºadd--¼Ä´æÆ÷µØÖ·
-          dat--Ð´ÈëµÄÊý¾Ý
-********************************************/
-void Write_dat(uchar add, uchar dat)
-{
-    DS_RST0;
-    DS_SCL0;
-    _NOP();
-    DS_RST1;
-    Write_Byte(add);   //Ð´ÈëµØÖ·
-    Write_Byte(dat);  //Ð´ÈëÊý¾Ý
-    DS_SCL1;
-    DS_RST0;
-}
-/*******************************************
-º¯ÊýÃû³Æ£ºRead_dat
-¹¦    ÄÜ£º´ÓÄ³¸ö¼Ä´æÆ÷¶Á³öÒ»¸ö×Ö½ÚÊý¾Ý
-²Î    Êý£ºaddr--¼Ä´æÆ÷µØÖ·
-·µ»ØÖµ  £º¶Á³öµÄÊý¾Ý
-********************************************/
-uchar read_1302add(uchar add)
-{
-    uchar rdata;
-    DS_RST0;
-    DS_SCL0;
-    _NOP();
-    DS_RST1;
-    Write_Byte(add);    //Ð´ÈëµØÖ·
-    rdata = Read_Byte();  //¶Á³öÊý¾Ý
-    DS_SCL1;
-    DS_RST0;
-
-    return(rdata);
-}
-/***********³õÊ¼»¯1302*************/
-void init_1302()
-{
-  flag=read_1302add(0x81);//¶ÁÃë¼Ä´æÆ÷×î¸ßÎ»,¶Á³öÊ±ÖÓ×´Ì¬
-  if(flag&0x80)//ÅÐ¶ÏÊ±ÖÓÊÇ·ñ¹Ø±Õ,ÈôÄÚ²¿¹Ø±Õ,Ôò³õÊ¼»¯,·ñÔò¼ÌÐø×ß
-  {
-    Write_dat(0x8e,0x00);
-    Write_dat(0x80,((55/10)<<4|(55%10)));//Ð´Ãë¼Ä´æÆ÷£¬²¢Ð´Èë³õÖµ55
-   Write_dat(0x82,((59/10)<<4|(59%10)));//Ð´·Ö¼Ä´æÆ÷£¬²¢Ð´Èë³õÖµ59
-   Write_dat(0x84,((22/10)<<4|(22%10)));//Ð´Ð¡Ê±¼Ä´æÆ÷£¬²¢Ð´Èë³õÖµ23
-   Write_dat(0x86,((24/10)<<4|(24%10)));//Ð´ÈÕ¼Ä´æÆ÷£¬²¢Ð´Èë³õÖµ18
-   Write_dat(0x88,((2/10)<<4|(2%10)));//Ð´ÔÂ¼Ä´æÆ÷£¬²¢Ð´Èë³õÖµ2
-   Write_dat(0x8a,((5/10)<<4|(5%10)));//Ð´ÖÜ¼Ä´æÆ÷£¬²¢Ð´Èë³õÖµ5
-   Write_dat(0x8c,((12/10)<<4|(12%10)));//Ð´Äê¼Ä´æÆ÷£¬²¢Ð´Èë³õÖµ12£¬²»ÄÜÐ´2012Äê
-    Write_dat(0x90,0xa5);//Ð´³äµç·½Ê½
-    Write_dat(0x8e,0x80);//¼ÓÉÏÐ´±£»¤
-
-  }
-}
-/*****************¶Á³öÃëµÄÊ®½øÖÆÊý***************************/
-
-uchar readsecond()
-{
-uchar dat;
-dat=read_1302add(0x81);
-second=((dat&0x70)>>4)*10+(dat&0x0f);
-return second;
-}
-/*****************¶Á³ö·ÖµÄÊ®½øÖÆÊý***************************/
-uchar readminute()
-{
-uchar dat;
-dat=read_1302add(0x83);
-minute=((dat&0x70)>>4)*10+(dat&0x0f);
-return minute;
-}
-/*****************¶Á³öÐ¡Ê±µÄÊ®½øÖÆÊý***************************/
-uchar readhour()
-{
-uchar dat;
-dat=read_1302add(0x85);
-hour=((dat&0x70)>>4)*10+(dat&0x0f);
-return hour;
-}
-/*****************¶Á³öÌìµÄÊ®½øÖÆÊý***************************/
-uchar readday()
-{
-uchar dat;
-dat=read_1302add(0x87);
-day=((dat&0x70)>>4)*10+(dat&0x0f);
-return day;
-}
-/*****************¶Á³öÔÂµÄÊ®½øÖÆÊý***************************/
-uchar readmonth()
-{
-uchar dat;
-dat=read_1302add(0x89);
-month=((dat&0x70)>>4)*10+(dat&0x0f);
-return month;
-}
-/*****************¶Á³öÖÜµÄÊ®½øÖÆÊý***************************/
-uchar readweek()
-{
-uchar dat;
-dat=read_1302add(0x8b);
-week=((dat&0x70)>>4)*10+(dat&0x0f);
-return week;
-}
-/*****************¶Á³öÄêµÄÊ®½øÖÆÊý***************************/
-uchar readyear()
-{
-uchar dat;
-dat=read_1302add(0x8d);
-year=((dat&0xf0)>>4)*10+(dat&0x0f);
-return year;
-}
-
-/************************¶Á³öËùÓÐÊ±¼ä**********************/
-void  readtime()
-{
-readsecond();
-readminute();
-readhour();
-readday();
-readmonth();
-readweek();
-readyear();
-}
-/*********************Ïò1602Ð´ÈëÊ±¼ä****************************/
-void write_second()
-{
-uchar shi,ge;
-shi=second/10;
-ge=second%10;
-Write1602(0x80+0x40+9,0x30+shi);
-Write1602(0x80+0x40+10,0x30+ge);
-}
-void write_minute()
-{
-uchar shi,ge;
-shi=minute/10;
-ge=minute%10;
-Write1602(0x80+0x40+6,0x30+shi);
-Write1602(0x80+0x40+7,0x30+ge);
-}
-void write_hour()
-{
-uchar shi,ge;
-shi=hour/10;
-ge=hour%10;
-Write1602(0x80+0x40+3,0x30+shi);
-Write1602(0x80+0x40+4,0x30+ge);
-}
-void write_day()
-{
-uchar shi,ge;
-shi=day/10;
-ge=day%10;
-Write1602(0x80+8,0x30+shi);
-Write1602(0x80+9,0x30+ge);
-}
-void write_month()
-{
-uchar shi,ge;
-shi=month/10;
-ge=month%10;
-Write1602(0x80+5,0x30+shi);
-Write1602(0x80+6,0x30+ge);
-}
-void write_year()
-{
-uchar shi,ge;
-shi=year/10;
-ge=year%10;
-Write1602(0x80+2,0x30+shi);
-Write1602(0x80+3,0x30+ge);
-}
-void write_week()
-{
-Write1602(0x80+12,0x30+week);
-//uchar week;
-switch(week)
-  {
-   case 1: Write1602(0x80+12,'M');
-        Write1602(0x80+13,'O');
-     Write1602(0x80+14,'N');
-     break;
-    case 2:Write1602(0x80+12,'T');
-        Write1602(0x80+13,'U');
-     Write1602(0x80+14,'E');
-     break;
-    case 3:Write1602(0x80+12,'W');
-        Write1602(0x80+13,'E');
-     Write1602(0x80+14,'N');
-     break;
-    case 4:Write1602(0x80+12,'T');
-        Write1602(0x80+13,'H');
-     Write1602(0x80+14,'U');
-     break;
- case 5:Write1602(0x80+12,'F');
-        Write1602(0x80+13,'R');
-     Write1602(0x80+14,'I');
-     break;
-    case 6:Write1602(0x80+12,'S');
-        Write1602(0x80+13,'A');
-     Write1602(0x80+14,'T');
-     break;
- case 7:Write1602(0x80+12,'S');
-        Write1602(0x80+13,'U');
-     Write1602(0x80+14,'N');
-     break;
-  }
-}
-
-/*************************Ö÷º¯Êý*************************/
-void main( void )
-{
-    /*ÏÂÃæÁùÐÐ³ÌÐò¹Ø±ÕËùÓÐµÄIO¿Ú*/
-    P1DIR = 0XFF;P1OUT = 0XFF;
-    P2DIR = 0XFF;P2OUT = 0XFF;
-    P3DIR = 0XFF;P3OUT = 0XFF;
-    P4DIR = 0XFF;P4OUT = 0XFF;
-    P5DIR = 0XFF;P5OUT = 0XFF;
-    P6DIR = 0XFF;P6OUT = 0XFF;
-
-    WDTCTL = WDTPW + WDTHOLD;  //¹Ø¹·
-    LcdReset();
- //zifuchuan("The time is:");
-    //Ñ­»·¶ÁÊýÏÔÊ¾
-    init_1302();
-    Write_dat(0x80, 0x00);
-  while(1)
-    {
-
-  readtime();
-  write_second();
-  write_minute();
-  write_hour();
-  write_day();
-  write_month();
-  write_year();
-  write_week();
-
-     }
-}
-
-
-

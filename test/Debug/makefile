@@ -134,7 +134,7 @@ BIN_OUTPUTS__QUOTED += \
 
 # All Target
 all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
-	@$(MAKE) --no-print-directory -Onone "test.out"
+	@$(MAKE) --no-print-directory -Onone "test.out" secondary-outputs
 
 # Tool invocations
 test.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
@@ -150,6 +150,7 @@ test.hex: $(EXE_OUTPUTS)
 	"C:/ti/ccsv8/tools/compiler/ti-cgt-msp430_18.1.2.LTS/bin/hex430" --memwidth=8 --romwidth=8 -o "test.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building: $(strip $(EXE_OUTPUTS__QUOTED))'
 	@echo ' '
+	@$(MAKE) --no-print-directory post-build
 
 # Other Targets
 clean:
@@ -158,6 +159,12 @@ clean:
 	-$(RM) "main.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
+
+post-build:
+	-"C:/ti/ccsv8/tools/compiler/ti-cgt-msp430_18.1.2.LTS/bin/hex430" --ti_txt "test.out" -o "test.txt" -order MS -romwidth 16
+	-@echo ' '
+
+secondary-outputs: $(BIN_OUTPUTS)
 
 .PHONY: all clean dependents
 .SECONDARY:
