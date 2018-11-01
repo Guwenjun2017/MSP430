@@ -138,7 +138,7 @@ BIN_OUTPUTS__QUOTED += \
 
 # All Target
 all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
-	@$(MAKE) --no-print-directory -Onone "4x4key.out"
+	@$(MAKE) --no-print-directory -Onone "4x4key.out" secondary-outputs
 
 # Tool invocations
 4x4key.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
@@ -154,6 +154,7 @@ all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	"C:/ti/ccsv8/tools/compiler/ti-cgt-msp430_18.1.2.LTS/bin/hex430" --memwidth=8 --romwidth=8 -o "4x4key.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building: $(strip $(EXE_OUTPUTS__QUOTED))'
 	@echo ' '
+	@$(MAKE) --no-print-directory post-build
 
 # Other Targets
 clean:
@@ -162,6 +163,12 @@ clean:
 	-$(RM) "SG90.d" "clock.d" "lcd_1602.d" "main.d" "my_4x4key.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
+
+post-build:
+	-"C:/ti/ccsv8/tools/compiler/ti-cgt-msp430_18.1.2.LTS/bin/hex430" --ti_txt "4x4key.out" -o "4x4key.txt" -order MS -romwidth 16
+	-@echo ' '
+
+secondary-outputs: $(BIN_OUTPUTS)
 
 .PHONY: all clean dependents
 .SECONDARY:

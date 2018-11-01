@@ -139,11 +139,11 @@ void init_nRF24L01(void)
 {
     delay_us(10);
     CE_clr;
-    CSN_clr;
+    CSN_set;
     SCK_clr;
-    SPI_write_buf(WRITE_REG + TX_ADDR, TX_ADDRESS, TX_ADR_WIDTH);
-    SPI_write_buf(WRITE_REG + RX_ADDR_P0, RX_ADDRESS, RX_ADR_WIDTH);
-    SPI_write_reg(WRITE_REG + EN_AA, 0x01);
+    SPI_write_buf(WRITE_REG + TX_ADDR, TX_ADDRESS, TX_ADR_WIDTH);    //写要发送的地址，即从机地址
+    SPI_write_buf(WRITE_REG + RX_ADDR_P0, RX_ADDRESS, RX_ADR_WIDTH);  //写本机接收地址
+    SPI_write_reg(WRITE_REG + EN_AA, 0x00);    //频道0自动ACK应答允许
     SPI_write_reg(WRITE_REG + EN_RXADDR, 0x01);
     SPI_write_reg(WRITE_REG + RF_CH, 0);
     SPI_write_reg(WRITE_REG + RX_PW_P0, RX_PLOAD_WIDTH);

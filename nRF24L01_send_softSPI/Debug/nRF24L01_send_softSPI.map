@@ -1,10 +1,10 @@
 ******************************************************************************
                   MSP430 Linker PC v18.1.2                     
 ******************************************************************************
->> Linked Sun Oct 28 10:29:50 2018
+>> Linked Tue Oct 30 15:03:42 2018
 
 OUTPUT FILE NAME:   <nRF24L01_send_softSPI.out>
-ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 000014c6
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 000013f6
 
 
 MEMORY CONFIGURATION
@@ -14,10 +14,10 @@ MEMORY CONFIGURATION
   SFR                   00000000   00000010  00000000  00000010  RWIX
   PERIPHERALS_8BIT      00000010   000000f0  00000000  000000f0  RWIX
   PERIPHERALS_16BIT     00000100   00000100  00000000  00000100  RWIX
-  RAM                   00000200   00000800  000000b8  00000748  RWIX
+  RAM                   00000200   00000800  0000005b  000007a5  RWIX
   INFOB                 00001000   00000080  00000000  00000080  RWIX
   INFOA                 00001080   00000080  00000000  00000080  RWIX
-  FLASH                 00001100   0000eee0  0000047e  0000ea62  RWIX
+  FLASH                 00001100   0000eee0  000003b6  0000eb2a  RWIX
   INT00                 0000ffe0   00000002  00000002  00000000  RWIX
   INT01                 0000ffe2   00000002  00000002  00000000  RWIX
   INT02                 0000ffe4   00000002  00000002  00000000  RWIX
@@ -41,58 +41,45 @@ SECTION ALLOCATION MAP
  output                                  attributes/
 section   page    origin      length       input sections
 --------  ----  ----------  ----------   ----------------
-.data      0    00000250    00000012     UNINITIALIZED
-                  00000250    00000005     main.obj (.data:RX_ADDRESS)
-                  00000255    00000001     --HOLE--
-                  00000256    00000005     main.obj (.data:TX_ADDRESS)
-                  0000025b    00000001     --HOLE--
-                  0000025c    00000002     rts430_eabi.lib : _lock.c.obj (.data:_lock)
-                  0000025e    00000002                     : _lock.c.obj (.data:_unlock)
-                  00000260    00000002                     : memory.c.obj (.data)
-
-.bss       0    00000262    00000006     UNINITIALIZED
-                  00000262    00000006     rts430_eabi.lib : memory.c.obj (.bss)
-
-.sysmem    0    00000200    00000050     UNINITIALIZED
-                  00000200    00000004     rts430_eabi.lib : memory.c.obj (.sysmem)
-                  00000204    0000004c     --HOLE--
+.data      0    00000200    0000000b     UNINITIALIZED
+                  00000200    00000005     main.obj (.data:RX_ADDRESS)
+                  00000205    00000001     --HOLE--
+                  00000206    00000005     main.obj (.data:TX_ADDRESS)
 
 .stack     0    000009b0    00000050     UNINITIALIZED
                   000009b0    00000002     rts430_eabi.lib : boot.c.obj (.stack)
                   000009b2    0000004e     --HOLE--
 
-.text      0    00001100    00000458     
-                  00001100    000000b2     rts430_eabi.lib : memory.c.obj (.text:malloc)
-                  000011b2    00000080     nRF24L01.obj (.text:init_nRF24L01)
-                  00001232    0000007c     rts430_eabi.lib : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
-                  000012ae    0000004c                     : lsr16.asm.obj (.text)
-                  000012fa    00000042                     : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
-                  0000133c    0000003e     main.obj (.text:main)
-                  0000137a    0000003c     nRF24L01.obj (.text:SPI_write)
-                  000013b6    00000038     rts430_eabi.lib : memory.c.obj (.text:minit)
-                  000013ee    00000032     nRF24L01.obj (.text:nRF24L01_TX)
-                  00001420    0000002e     nRF24L01.obj (.text:SPI_write_buf)
-                  0000144e    0000002e     clock.obj (.text:init_clk)
-                  0000147c    0000002c     rts430_eabi.lib : lsl16.asm.obj (.text)
-                  000014a8    0000001e     nRF24L01.obj (.text:SPI_write_reg)
-                  000014c6    0000001c     rts430_eabi.lib : boot.c.obj (.text:_c_int00_noargs)
-                  000014e2    00000018     Port.obj (.text:init_nRF_port)
-                  000014fa    00000014     rts430_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
-                  0000150e    00000012                     : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
-                  00001520    00000012                     : memcpy.c.obj (.text:memcpy)
-                  00001532    00000010                     : epilog.asm.obj (.text)
-                  00001542    00000008                     : isr_trap.asm.obj (.text:_isr:__TI_ISR_TRAP)
-                  0000154a    00000006                     : exit.c.obj (.text:abort)
-                  00001550    00000004                     : pre_init.c.obj (.text:_system_pre_init)
-                  00001554    00000002                     : _lock.c.obj (.text:_nop)
-                  00001556    00000002                     : startup.c.obj (.text:_system_post_cinit)
+.text      0    00001100    00000382     
+                  00001100    00000080     nRF24L01.obj (.text:init_nRF24L01)
+                  00001180    0000007c     rts430_eabi.lib : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  000011fc    00000058     main.obj (.text:main)
+                  00001254    0000004c     rts430_eabi.lib : lsr16.asm.obj (.text)
+                  000012a0    00000042                     : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  000012e2    0000003c     nRF24L01.obj (.text:SPI_write)
+                  0000131e    00000032     nRF24L01.obj (.text:nRF24L01_TX)
+                  00001350    0000002e     nRF24L01.obj (.text:SPI_write_buf)
+                  0000137e    0000002e     clock.obj (.text:init_clk)
+                  000013ac    0000002c     rts430_eabi.lib : lsl16.asm.obj (.text)
+                  000013d8    0000001e     nRF24L01.obj (.text:SPI_write_reg)
+                  000013f6    0000001c     rts430_eabi.lib : boot.c.obj (.text:_c_int00_noargs)
+                  00001412    00000018     Port.obj (.text:init_nRF_port)
+                  0000142a    00000012     rts430_eabi.lib : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  0000143c    00000012                     : memcpy.c.obj (.text:memcpy)
+                  0000144e    00000010     nRF24L01.obj (.text:SPI_read)
+                  0000145e    00000010     rts430_eabi.lib : epilog.asm.obj (.text)
+                  0000146e    00000008                     : isr_trap.asm.obj (.text:_isr:__TI_ISR_TRAP)
+                  00001476    00000006                     : exit.c.obj (.text:abort)
+                  0000147c    00000004                     : pre_init.c.obj (.text:_system_pre_init)
+                  00001480    00000002                     : startup.c.obj (.text:_system_post_cinit)
 
-.cinit     0    00001558    00000026     
-                  00001558    00000013     (.cinit..data.load) [load image, compression = lzss]
-                  0000156b    00000001     --HOLE-- [fill = 0]
-                  0000156c    00000006     (__TI_handler_table)
-                  00001572    00000004     (.cinit..bss.load) [load image, compression = zero_init]
-                  00001576    00000008     (__TI_cinit_table)
+.const     0    00001482    00000020     
+                  00001482    00000020     main.obj (.const:.string:$P$T0$1)
+
+.cinit     0    000014a2    00000014     
+                  000014a2    0000000c     (.cinit..data.load) [load image, compression = lzss]
+                  000014ae    00000004     (__TI_handler_table)
+                  000014b2    00000004     (__TI_cinit_table)
 
 .binit     0    00001100    00000000     
 
@@ -153,26 +140,23 @@ MODULE SUMMARY
        Module                       code   ro data   rw data
        ------                       ----   -------   -------
     .\
-       nRF24L01.obj                 314    0         0      
-       main.obj                     62     0         10     
+       nRF24L01.obj                 330    0         0      
+       main.obj                     88     32        10     
        clock.obj                    46     0         0      
        Port.obj                     24     0         0      
     +--+----------------------------+------+---------+---------+
-       Total:                       446    0         10     
+       Total:                       488    32        10     
                                                             
     C:\ti\ccsv8\tools\compiler\ti-cgt-msp430_18.1.2.LTS\lib\rts430_eabi.lib
-       memory.c.obj                 234    0         8      
        copy_decompress_lzss.c.obj   124    0         0      
        lsr16.asm.obj                76     0         0      
        autoinit.c.obj               66     0         0      
        lsl16.asm.obj                44     0         0      
        boot.c.obj                   28     2         0      
-       copy_zero_init.c.obj         20     0         0      
        copy_decompress_none.c.obj   18     0         0      
        memcpy.c.obj                 18     0         0      
        epilog.asm.obj               16     0         0      
        isr_trap.asm.obj             8      0         0      
-       _lock.c.obj                  2      0         4      
        exit.c.obj                   6      0         0      
        pre_init.c.obj               4      0         0      
        int00.asm.obj                0      2         0      
@@ -192,28 +176,25 @@ MODULE SUMMARY
        int14.asm.obj                0      2         0      
        startup.c.obj                2      0         0      
     +--+----------------------------+------+---------+---------+
-       Total:                       666    32        12     
+       Total:                       410    32        0      
                                                             
-       Heap:                        0      0         80     
        Stack:                       0      0         80     
-       Linker Generated:            0      37        0      
+       Linker Generated:            0      20        0      
     +--+----------------------------+------+---------+---------+
-       Grand Total:                 1112   69        182    
+       Grand Total:                 898    84        90     
 
 
 LINKER GENERATED COPY TABLES
 
-__TI_cinit_table @ 00001576 records: 2, size/record: 4, table size: 8
-	.data: load addr=00001558, load size=00000013 bytes, run addr=00000250, run size=00000012 bytes, compression=lzss
-	.bss: load addr=00001572, load size=00000004 bytes, run addr=00000262, run size=00000006 bytes, compression=zero_init
+__TI_cinit_table @ 000014b2 records: 1, size/record: 4, table size: 4
+	.data: load addr=000014a2, load size=0000000c bytes, run addr=00000200, run size=0000000b bytes, compression=lzss
 
 
 LINKER GENERATED HANDLER TABLE
 
-__TI_handler_table @ 0000156c records: 3, size/record: 2, table size: 6
-	index: 0, handler: __TI_zero_init
-	index: 1, handler: __TI_decompress_lzss
-	index: 2, handler: __TI_decompress_none
+__TI_handler_table @ 000014ae records: 2, size/record: 2, table size: 4
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
 
 
 GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
@@ -259,7 +240,7 @@ address   name
 00000152  ADC12MEM9                     
 00000057  BCSCTL1                       
 00000058  BCSCTL2                       
-0000154a  C$$EXIT                       
+00001476  C$$EXIT                       
 00000059  CACTL1                        
 0000005a  CACTL2                        
 0000005b  CAPD                          
@@ -341,10 +322,11 @@ address   name
 00000037  P6SEL                         
 0000013c  RESHI                         
 0000013a  RESLO                         
-00000250  RX_ADDRESS                    
-0000137a  SPI_write                     
-00001420  SPI_write_buf                 
-000014a8  SPI_write_reg                 
+00000200  RX_ADDRESS                    
+0000144e  SPI_read                      
+000012e2  SPI_write                     
+00001350  SPI_write_buf                 
+000013d8  SPI_write_reg                 
 0000013e  SUMEXT                        
 00000055  SVSCTL                        
 00000172  TACCR0                        
@@ -373,7 +355,7 @@ address   name
 00000180  TBCTL                         
 0000011e  TBIV                          
 00000190  TBR                           
-00000256  TX_ADDRESS                    
+00000206  TX_ADDRESS                    
 00000074  U0BR0                         
 00000075  U0BR1                         
 00000070  U0CTL                         
@@ -393,15 +375,14 @@ address   name
 00000120  WDTCTL                        
 00000a00  __STACK_END                   
 00000050  __STACK_SIZE                  
-00000050  __SYSMEM_SIZE                 
-00001576  __TI_CINIT_Base               
-0000157e  __TI_CINIT_Limit              
-0000156c  __TI_Handler_Table_Base       
-00001572  __TI_Handler_Table_Limit      
-00001542  __TI_ISR_TRAP                 
-000012fa  __TI_auto_init_nobinit_nopinit
-00001232  __TI_decompress_lzss          
-0000150e  __TI_decompress_none          
+000014b2  __TI_CINIT_Base               
+000014b6  __TI_CINIT_Limit              
+000014ae  __TI_Handler_Table_Base       
+000014b2  __TI_Handler_Table_Limit      
+0000146e  __TI_ISR_TRAP                 
+000012a0  __TI_auto_init_nobinit_nopinit
+00001180  __TI_decompress_lzss          
+0000142a  __TI_decompress_none          
 0000ffe0  __TI_int00                    
 0000ffe2  __TI_int01                    
 0000ffe4  __TI_int02                    
@@ -420,65 +401,58 @@ address   name
 ffffffff  __TI_pprof_out_hndl           
 ffffffff  __TI_prof_data_size           
 ffffffff  __TI_prof_data_start          
-000014fa  __TI_zero_init_nomemset       
 ffffffff  __c_args__                    
-0000153e  __mspabi_func_epilog_1        
-0000153c  __mspabi_func_epilog_2        
-0000153a  __mspabi_func_epilog_3        
-00001538  __mspabi_func_epilog_4        
-00001536  __mspabi_func_epilog_5        
-00001534  __mspabi_func_epilog_6        
-00001532  __mspabi_func_epilog_7        
-0000147c  __mspabi_slli                 
-000014a4  __mspabi_slli_1               
-00001492  __mspabi_slli_10              
-00001490  __mspabi_slli_11              
-0000148e  __mspabi_slli_12              
-0000148c  __mspabi_slli_13              
-0000148a  __mspabi_slli_14              
-00001488  __mspabi_slli_15              
-000014a2  __mspabi_slli_2               
-000014a0  __mspabi_slli_3               
-0000149e  __mspabi_slli_4               
-0000149c  __mspabi_slli_5               
-0000149a  __mspabi_slli_6               
-00001498  __mspabi_slli_7               
-00001496  __mspabi_slli_8               
-00001494  __mspabi_slli_9               
-000012ae  __mspabi_srli                 
-000012f4  __mspabi_srli_1               
-000012d0  __mspabi_srli_10              
-000012cc  __mspabi_srli_11              
-000012c8  __mspabi_srli_12              
-000012c4  __mspabi_srli_13              
-000012c0  __mspabi_srli_14              
-000012bc  __mspabi_srli_15              
-000012f0  __mspabi_srli_2               
-000012ec  __mspabi_srli_3               
-000012e8  __mspabi_srli_4               
-000012e4  __mspabi_srli_5               
-000012e0  __mspabi_srli_6               
-000012dc  __mspabi_srli_7               
-000012d8  __mspabi_srli_8               
-000012d4  __mspabi_srli_9               
-000014c6  _c_int00_noargs               
-0000025c  _lock                         
-00001554  _nop                          
+0000146a  __mspabi_func_epilog_1        
+00001468  __mspabi_func_epilog_2        
+00001466  __mspabi_func_epilog_3        
+00001464  __mspabi_func_epilog_4        
+00001462  __mspabi_func_epilog_5        
+00001460  __mspabi_func_epilog_6        
+0000145e  __mspabi_func_epilog_7        
+000013ac  __mspabi_slli                 
+000013d4  __mspabi_slli_1               
+000013c2  __mspabi_slli_10              
+000013c0  __mspabi_slli_11              
+000013be  __mspabi_slli_12              
+000013bc  __mspabi_slli_13              
+000013ba  __mspabi_slli_14              
+000013b8  __mspabi_slli_15              
+000013d2  __mspabi_slli_2               
+000013d0  __mspabi_slli_3               
+000013ce  __mspabi_slli_4               
+000013cc  __mspabi_slli_5               
+000013ca  __mspabi_slli_6               
+000013c8  __mspabi_slli_7               
+000013c6  __mspabi_slli_8               
+000013c4  __mspabi_slli_9               
+00001254  __mspabi_srli                 
+0000129a  __mspabi_srli_1               
+00001276  __mspabi_srli_10              
+00001272  __mspabi_srli_11              
+0000126e  __mspabi_srli_12              
+0000126a  __mspabi_srli_13              
+00001266  __mspabi_srli_14              
+00001262  __mspabi_srli_15              
+00001296  __mspabi_srli_2               
+00001292  __mspabi_srli_3               
+0000128e  __mspabi_srli_4               
+0000128a  __mspabi_srli_5               
+00001286  __mspabi_srli_6               
+00001282  __mspabi_srli_7               
+0000127e  __mspabi_srli_8               
+0000127a  __mspabi_srli_9               
+000013f6  _c_int00_noargs               
 0000fffe  _reset_vector                 
 000009b0  _stack                        
-00000200  _sys_memory                   
-00001556  _system_post_cinit            
-00001550  _system_pre_init              
-0000025e  _unlock                       
-0000154a  abort                         
-0000144e  init_clk                      
-000011b2  init_nRF24L01                 
-000014e2  init_nRF_port                 
-0000133c  main                          
-00001100  malloc                        
-00001520  memcpy                        
-000013b6  minit                         
-000013ee  nRF24L01_TX                   
+00001480  _system_post_cinit            
+0000147c  _system_pre_init              
+00001476  abort                         
+0000137e  init_clk                      
+00001100  init_nRF24L01                 
+00001412  init_nRF_port                 
+000011fc  main                          
+0000143c  memcpy                        
+0000131e  nRF24L01_TX                   
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
@@ -523,7 +497,6 @@ address   name
 00000037  P6SEL                         
 00000050  I2CIE                         
 00000050  __STACK_SIZE                  
-00000050  __SYSMEM_SIZE                 
 00000051  I2CIFG                        
 00000052  I2CNDAT                       
 00000055  SVSCTL                        
@@ -652,78 +625,72 @@ address   name
 000001f2  DMA2SA                        
 000001f4  DMA2DA                        
 000001f6  DMA2SZ                        
-00000200  _sys_memory                   
-00000250  RX_ADDRESS                    
-00000256  TX_ADDRESS                    
-0000025c  _lock                         
-0000025e  _unlock                       
+00000200  RX_ADDRESS                    
+00000206  TX_ADDRESS                    
 000009b0  _stack                        
 00000a00  __STACK_END                   
-00001100  malloc                        
-000011b2  init_nRF24L01                 
-00001232  __TI_decompress_lzss          
-000012ae  __mspabi_srli                 
-000012bc  __mspabi_srli_15              
-000012c0  __mspabi_srli_14              
-000012c4  __mspabi_srli_13              
-000012c8  __mspabi_srli_12              
-000012cc  __mspabi_srli_11              
-000012d0  __mspabi_srli_10              
-000012d4  __mspabi_srli_9               
-000012d8  __mspabi_srli_8               
-000012dc  __mspabi_srli_7               
-000012e0  __mspabi_srli_6               
-000012e4  __mspabi_srli_5               
-000012e8  __mspabi_srli_4               
-000012ec  __mspabi_srli_3               
-000012f0  __mspabi_srli_2               
-000012f4  __mspabi_srli_1               
-000012fa  __TI_auto_init_nobinit_nopinit
-0000133c  main                          
-0000137a  SPI_write                     
-000013b6  minit                         
-000013ee  nRF24L01_TX                   
-00001420  SPI_write_buf                 
-0000144e  init_clk                      
-0000147c  __mspabi_slli                 
-00001488  __mspabi_slli_15              
-0000148a  __mspabi_slli_14              
-0000148c  __mspabi_slli_13              
-0000148e  __mspabi_slli_12              
-00001490  __mspabi_slli_11              
-00001492  __mspabi_slli_10              
-00001494  __mspabi_slli_9               
-00001496  __mspabi_slli_8               
-00001498  __mspabi_slli_7               
-0000149a  __mspabi_slli_6               
-0000149c  __mspabi_slli_5               
-0000149e  __mspabi_slli_4               
-000014a0  __mspabi_slli_3               
-000014a2  __mspabi_slli_2               
-000014a4  __mspabi_slli_1               
-000014a8  SPI_write_reg                 
-000014c6  _c_int00_noargs               
-000014e2  init_nRF_port                 
-000014fa  __TI_zero_init_nomemset       
-0000150e  __TI_decompress_none          
-00001520  memcpy                        
-00001532  __mspabi_func_epilog_7        
-00001534  __mspabi_func_epilog_6        
-00001536  __mspabi_func_epilog_5        
-00001538  __mspabi_func_epilog_4        
-0000153a  __mspabi_func_epilog_3        
-0000153c  __mspabi_func_epilog_2        
-0000153e  __mspabi_func_epilog_1        
-00001542  __TI_ISR_TRAP                 
-0000154a  C$$EXIT                       
-0000154a  abort                         
-00001550  _system_pre_init              
-00001554  _nop                          
-00001556  _system_post_cinit            
-0000156c  __TI_Handler_Table_Base       
-00001572  __TI_Handler_Table_Limit      
-00001576  __TI_CINIT_Base               
-0000157e  __TI_CINIT_Limit              
+00001100  init_nRF24L01                 
+00001180  __TI_decompress_lzss          
+000011fc  main                          
+00001254  __mspabi_srli                 
+00001262  __mspabi_srli_15              
+00001266  __mspabi_srli_14              
+0000126a  __mspabi_srli_13              
+0000126e  __mspabi_srli_12              
+00001272  __mspabi_srli_11              
+00001276  __mspabi_srli_10              
+0000127a  __mspabi_srli_9               
+0000127e  __mspabi_srli_8               
+00001282  __mspabi_srli_7               
+00001286  __mspabi_srli_6               
+0000128a  __mspabi_srli_5               
+0000128e  __mspabi_srli_4               
+00001292  __mspabi_srli_3               
+00001296  __mspabi_srli_2               
+0000129a  __mspabi_srli_1               
+000012a0  __TI_auto_init_nobinit_nopinit
+000012e2  SPI_write                     
+0000131e  nRF24L01_TX                   
+00001350  SPI_write_buf                 
+0000137e  init_clk                      
+000013ac  __mspabi_slli                 
+000013b8  __mspabi_slli_15              
+000013ba  __mspabi_slli_14              
+000013bc  __mspabi_slli_13              
+000013be  __mspabi_slli_12              
+000013c0  __mspabi_slli_11              
+000013c2  __mspabi_slli_10              
+000013c4  __mspabi_slli_9               
+000013c6  __mspabi_slli_8               
+000013c8  __mspabi_slli_7               
+000013ca  __mspabi_slli_6               
+000013cc  __mspabi_slli_5               
+000013ce  __mspabi_slli_4               
+000013d0  __mspabi_slli_3               
+000013d2  __mspabi_slli_2               
+000013d4  __mspabi_slli_1               
+000013d8  SPI_write_reg                 
+000013f6  _c_int00_noargs               
+00001412  init_nRF_port                 
+0000142a  __TI_decompress_none          
+0000143c  memcpy                        
+0000144e  SPI_read                      
+0000145e  __mspabi_func_epilog_7        
+00001460  __mspabi_func_epilog_6        
+00001462  __mspabi_func_epilog_5        
+00001464  __mspabi_func_epilog_4        
+00001466  __mspabi_func_epilog_3        
+00001468  __mspabi_func_epilog_2        
+0000146a  __mspabi_func_epilog_1        
+0000146e  __TI_ISR_TRAP                 
+00001476  C$$EXIT                       
+00001476  abort                         
+0000147c  _system_pre_init              
+00001480  _system_post_cinit            
+000014ae  __TI_Handler_Table_Base       
+000014b2  __TI_CINIT_Base               
+000014b2  __TI_Handler_Table_Limit      
+000014b6  __TI_CINIT_Limit              
 0000ffe0  __TI_int00                    
 0000ffe2  __TI_int01                    
 0000ffe4  __TI_int02                    
@@ -745,4 +712,4 @@ ffffffff  __TI_prof_data_size
 ffffffff  __TI_prof_data_start          
 ffffffff  __c_args__                    
 
-[259 symbols]
+[252 symbols]

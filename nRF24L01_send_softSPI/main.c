@@ -17,19 +17,15 @@ void main(void)
 	init_clk();
 	init_nRF_port();
 	init_nRF24L01();
+
+    char tx_buf[32]="01234567890123456789012345678901";
+    //char *rx_buf=(unsigned char *)malloc(sizeof(unsigned char)*32);
+    P6DIR=0xff;
 	while(1)
 	{
-	    char *txbuf=(unsigned char*)malloc(sizeof(char)*32);
-	    for(txbuf[31]=0;txbuf[31]<32;txbuf[31]++){
-	        txbuf[txbuf[31]]=txbuf[31];
-	    }
-	    //send
-	     nRF24L01_TX(txbuf);
-//	    for(txbuf[31]=0;txbuf[31]<32;txbuf[31]++){
-//	        SPI_write(txbuf[txbuf[31]]);
-//	        delay_us(100);
-//	    }
-	    //txbuf[0] = 0;
+	     nRF24L01_TX(tx_buf);
+	     P6OUT=SPI_read(STATUS);
+	     delay_ms(100);
 	}
 
 }
