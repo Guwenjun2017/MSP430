@@ -9,42 +9,42 @@ CMD_SRCS += \
 ../lnk_msp430f169.cmd 
 
 C_SRCS += \
-../SG90.c \
+../Port.c \
 ../clock.c \
 ../lcd_1602.c \
 ../main.c \
 ../my_4x4key.c 
 
 C_DEPS += \
-./SG90.d \
+./Port.d \
 ./clock.d \
 ./lcd_1602.d \
 ./main.d \
 ./my_4x4key.d 
 
 OBJS += \
-./SG90.obj \
+./Port.obj \
 ./clock.obj \
 ./lcd_1602.obj \
 ./main.obj \
 ./my_4x4key.obj 
 
 OBJS__QUOTED += \
-"SG90.obj" \
+"Port.obj" \
 "clock.obj" \
 "lcd_1602.obj" \
 "main.obj" \
 "my_4x4key.obj" 
 
 C_DEPS__QUOTED += \
-"SG90.d" \
+"Port.d" \
 "clock.d" \
 "lcd_1602.d" \
 "main.d" \
 "my_4x4key.d" 
 
 C_SRCS__QUOTED += \
-"../SG90.c" \
+"../Port.c" \
 "../clock.c" \
 "../lcd_1602.c" \
 "../main.c" \

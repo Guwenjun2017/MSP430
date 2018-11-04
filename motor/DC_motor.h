@@ -12,6 +12,7 @@ void start();
 void stop();
 void speed_add();
 void speed_sub();
+void show_status(uchar status, uint speed);;
 
 
 #endif /* DC_MOTOR_H_ */

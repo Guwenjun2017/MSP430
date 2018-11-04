@@ -50,6 +50,9 @@ void lcd1602_init()
     delay_ms(10);
     write_cmd(0x01);
     delay_ms(10);
+
+    dis_str(0x80, "STATUS:");
+    dis_str(0x80+0x40, " SPEED:");
 }
 
 void dis_str(uchar addr, uchar *str)
@@ -67,7 +70,11 @@ void display(unsigned long int num)
     uchar dis_flag = 0;
     uchar table[7];
 
-    if(num<=9 & num>0)
+    if(num == 0)
+    {
+        write_data('0');
+    }
+    else if(num<=9 & num>0)
     {
         dis_flag = 1;
         table[0] = num%10 + '0';

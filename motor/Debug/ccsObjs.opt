@@ -1,1 +1,1 @@
-"./DC_motor.obj" "./Port.obj" "./lcd_1602.obj" "./main.obj" "./my_4x4key.obj" "../lnk_msp430f169.cmd" -llibc.a 
+"./DC_motor.obj" "./Port.obj" "./clock.obj" "./lcd_1602.obj" "./main.obj" "./my_4x4key.obj" "../lnk_msp430f169.cmd" -llibc.a 

@@ -11,6 +11,7 @@ CMD_SRCS += \
 C_SRCS += \
 ../DC_motor.c \
 ../Port.c \
+../clock.c \
 ../lcd_1602.c \
 ../main.c \
 ../my_4x4key.c 
@@ -18,6 +19,7 @@ C_SRCS += \
 C_DEPS += \
 ./DC_motor.d \
 ./Port.d \
+./clock.d \
 ./lcd_1602.d \
 ./main.d \
 ./my_4x4key.d 
@@ -25,6 +27,7 @@ C_DEPS += \
 OBJS += \
 ./DC_motor.obj \
 ./Port.obj \
+./clock.obj \
 ./lcd_1602.obj \
 ./main.obj \
 ./my_4x4key.obj 
@@ -32,6 +35,7 @@ OBJS += \
 OBJS__QUOTED += \
 "DC_motor.obj" \
 "Port.obj" \
+"clock.obj" \
 "lcd_1602.obj" \
 "main.obj" \
 "my_4x4key.obj" 
@@ -39,6 +43,7 @@ OBJS__QUOTED += \
 C_DEPS__QUOTED += \
 "DC_motor.d" \
 "Port.d" \
+"clock.d" \
 "lcd_1602.d" \
 "main.d" \
 "my_4x4key.d" 
@@ -46,6 +51,7 @@ C_DEPS__QUOTED += \
 C_SRCS__QUOTED += \
 "../DC_motor.c" \
 "../Port.c" \
+"../clock.c" \
 "../lcd_1602.c" \
 "../main.c" \
 "../my_4x4key.c" 

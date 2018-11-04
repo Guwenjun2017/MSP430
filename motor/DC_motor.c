@@ -5,6 +5,7 @@
  *      Author: Jack
  */
 #include<msp430f169.h>
+#include"lcd_1602.h"
 extern unsigned int a;
 extern unsigned char STATUS;
 
@@ -45,4 +46,13 @@ void speed_sub()    //¼õËÙ
     if(a >= 12000)
         a -= 1000;
 }
-
+void show_status(unsigned char status, unsigned int speed)
+{
+    if(STATUS == 1){
+        dis_str(0x80+8, "RUN ");
+    }
+    else
+        dis_str(0x80+8, "STOP");
+    write_cmd(0x80+0x40+8);
+    display(speed-10000);   //1602¹Û²ìµ÷ÊÔ
+}

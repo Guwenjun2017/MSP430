@@ -10,7 +10,7 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
-"./SG90.obj" \
+"./Port.obj" \
 "./clock.obj" \
 "./lcd_1602.obj" \
 "./main.obj" \
@@ -159,8 +159,8 @@ all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "SG90.obj" "clock.obj" "lcd_1602.obj" "main.obj" "my_4x4key.obj" 
-	-$(RM) "SG90.d" "clock.d" "lcd_1602.d" "main.d" "my_4x4key.d" 
+	-$(RM) "Port.obj" "clock.obj" "lcd_1602.obj" "main.obj" "my_4x4key.obj" 
+	-$(RM) "Port.d" "clock.d" "lcd_1602.d" "main.d" "my_4x4key.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
