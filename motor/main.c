@@ -12,10 +12,12 @@ uchar key_value=0;      //全局变量键值
 uchar STATUS = 0;
 
 
+
+
 void main()
 {
     WDTCTL = WDTPW + WDTHOLD;
-    init_clk();
+    init_clk_1M();
     Init_PWM();
 
     init_1602_port();
@@ -40,5 +42,4 @@ void main()
         key_value = 0x00;   //键值清除
     }
 }
-
 

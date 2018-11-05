@@ -13,6 +13,7 @@ ORDERED_OBJS += \
 "./DC_motor.obj" \
 "./Port.obj" \
 "./clock.obj" \
+"./inf.obj" \
 "./lcd_1602.obj" \
 "./main.obj" \
 "./my_4x4key.obj" \
@@ -160,8 +161,8 @@ motor.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "DC_motor.obj" "Port.obj" "clock.obj" "lcd_1602.obj" "main.obj" "my_4x4key.obj" 
-	-$(RM) "DC_motor.d" "Port.d" "clock.d" "lcd_1602.d" "main.d" "my_4x4key.d" 
+	-$(RM) "DC_motor.obj" "Port.obj" "clock.obj" "inf.obj" "lcd_1602.obj" "main.obj" "my_4x4key.obj" 
+	-$(RM) "DC_motor.d" "Port.d" "clock.d" "inf.d" "lcd_1602.d" "main.d" "my_4x4key.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
