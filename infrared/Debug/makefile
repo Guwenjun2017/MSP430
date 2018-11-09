@@ -12,6 +12,7 @@ GEN_CMDS__FLAG :=
 ORDERED_OBJS += \
 "./Port.obj" \
 "./clock.obj" \
+"./inf.obj" \
 "./lcd_1602.obj" \
 "./main.obj" \
 "../lnk_msp430f169.cmd" \
@@ -123,42 +124,42 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-hongwei.out \
+infrared.out \
 
 EXE_OUTPUTS__QUOTED += \
-"hongwei.out" \
+"infrared.out" \
 
 BIN_OUTPUTS += \
-hongwei.hex \
+infrared.hex \
 
 BIN_OUTPUTS__QUOTED += \
-"hongwei.hex" \
+"infrared.hex" \
 
 
 # All Target
 all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
-	@$(MAKE) --no-print-directory -Onone "hongwei.out"
+	@$(MAKE) --no-print-directory -Onone "infrared.out"
 
 # Tool invocations
-hongwei.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+infrared.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: MSP430 Linker'
-	"C:/ti/ccsv8/tools/compiler/ti-cgt-msp430_18.1.3.LTS/bin/cl430" -vmsp --use_hw_mpy=16 --advice:power=all --define=__MSP430F169__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number -z -m"hongwei.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv8/ccs_base/msp430/include" -i"C:/ti/ccsv8/tools/compiler/ti-cgt-msp430_18.1.3.LTS/lib" -i"C:/ti/ccsv8/tools/compiler/ti-cgt-msp430_18.1.3.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="hongwei_linkInfo.xml" --use_hw_mpy=16 --rom_model -o "hongwei.out" $(ORDERED_OBJS)
+	"C:/ti/ccsv8/tools/compiler/ti-cgt-msp430_18.1.3.LTS/bin/cl430" -vmsp --use_hw_mpy=16 --advice:power=all --define=__MSP430F169__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number -z -m"infrared.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv8/ccs_base/msp430/include" -i"C:/ti/ccsv8/tools/compiler/ti-cgt-msp430_18.1.3.LTS/lib" -i"C:/ti/ccsv8/tools/compiler/ti-cgt-msp430_18.1.3.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="infrared_linkInfo.xml" --use_hw_mpy=16 --rom_model -o "infrared.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
-hongwei.hex: $(EXE_OUTPUTS)
+infrared.hex: $(EXE_OUTPUTS)
 	@echo 'Building files: $(strip $(EXE_OUTPUTS__QUOTED))'
 	@echo 'Invoking: MSP430 Hex Utility'
-	"C:/ti/ccsv8/tools/compiler/ti-cgt-msp430_18.1.3.LTS/bin/hex430" --memwidth=8 --romwidth=8 -o "hongwei.hex" $(EXE_OUTPUTS__QUOTED)
+	"C:/ti/ccsv8/tools/compiler/ti-cgt-msp430_18.1.3.LTS/bin/hex430" --memwidth=8 --romwidth=8 -o "infrared.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building: $(strip $(EXE_OUTPUTS__QUOTED))'
 	@echo ' '
 
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "Port.obj" "clock.obj" "lcd_1602.obj" "main.obj" 
-	-$(RM) "Port.d" "clock.d" "lcd_1602.d" "main.d" 
+	-$(RM) "Port.obj" "clock.obj" "inf.obj" "lcd_1602.obj" "main.obj" 
+	-$(RM) "Port.d" "clock.d" "inf.d" "lcd_1602.d" "main.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

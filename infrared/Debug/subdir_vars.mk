@@ -11,36 +11,42 @@ CMD_SRCS += \
 C_SRCS += \
 ../Port.c \
 ../clock.c \
+../inf.c \
 ../lcd_1602.c \
 ../main.c 
 
 C_DEPS += \
 ./Port.d \
 ./clock.d \
+./inf.d \
 ./lcd_1602.d \
 ./main.d 
 
 OBJS += \
 ./Port.obj \
 ./clock.obj \
+./inf.obj \
 ./lcd_1602.obj \
 ./main.obj 
 
 OBJS__QUOTED += \
 "Port.obj" \
 "clock.obj" \
+"inf.obj" \
 "lcd_1602.obj" \
 "main.obj" 
 
 C_DEPS__QUOTED += \
 "Port.d" \
 "clock.d" \
+"inf.d" \
 "lcd_1602.d" \
 "main.d" 
 
 C_SRCS__QUOTED += \
 "../Port.c" \
 "../clock.c" \
+"../inf.c" \
 "../lcd_1602.c" \
 "../main.c" 
 
