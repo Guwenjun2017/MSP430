@@ -51,8 +51,6 @@ void lcd1602_init()
     write_cmd(0x01);
     delay_ms(10);
 
-    dis_str(0x80, "STATUS:");
-    dis_str(0x80+0x40, " SPEED:");
 }
 
 void dis_str(uchar addr, uchar *str)

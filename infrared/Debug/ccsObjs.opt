@@ -1,0 +1,1 @@
+"./Port.obj" "./clock.obj" "./lcd_1602.obj" "./main.obj" "../lnk_msp430f169.cmd" -llibc.a 
