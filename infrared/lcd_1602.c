@@ -1,15 +1,19 @@
-#include<msp430f169.h>
-#include"type.h"
-#include"lcd_1602.h"
-#include"delay.h"
 /*
  * lcd_1602.c
  *
  *  Created on: 2018年10月6日
  *      Author: Jack
  */
-//写'命令'函数
-void write_cmd(uchar cmd)
+#include<msp430f169.h>
+#include"lcd_1602.h"
+#include"delay.h"
+/*
+ * 名    称：write_cmd_1602()
+ * 功    能：1602写命令
+ * 参    数：unsigned char cmd
+ * 返回值：无
+ */
+void write_cmd_1602(unsigned char cmd)
 {
     clear_RW;
     clear_RS;
@@ -21,8 +25,13 @@ void write_cmd(uchar cmd)
     clear_E;
 }
 
-//写'数据'函数
-void write_data(uchar data)
+/*
+ * 名    称：write_data_1602()
+ * 功    能：1602写数据
+ * 参    数：unsigned char data
+ * 返回值：无
+ */
+void write_data_1602(unsigned char data)
 {
     clear_RW;
     set_RS;
@@ -33,44 +42,54 @@ void write_data(uchar data)
 
     clear_E;
 }
-
-void Write1602(uchar addr, uchar data)
-{
-    write_cmd(addr);
-    write_data(data);
-}
-
+/*
+ * 名    称：lcd1602_init()
+ * 功    能：初始化lcd1602
+ * 参    数：无
+ * 返回值：无
+ */
 void lcd1602_init()
 {
-    write_cmd(0x38);
+    write_cmd_1602(0x38);
     delay_ms(10);
-    write_cmd(0x0c);
+    write_cmd_1602(0x0c);
     delay_ms(10);
-    write_cmd(0x06);
+    write_cmd_1602(0x06);
     delay_ms(10);
-    write_cmd(0x01);
+    write_cmd_1602(0x01);
     delay_ms(10);
-
 }
-
-void dis_str(uchar addr, uchar *str)
+/*
+ * 名    称：dis_str()
+ * 功    能：显示字符串
+ * 参    数：1、lcd1602显示起始地址  2、字符串首地址
+ * 返回值：无
+ */
+void dis_str(unsigned char addr, unsigned char *str)
 {
     while(*str)
     {
-        Write1602(addr, *str);
+        write_cmd_1602(addr);
+        write_data_1602(*str);
         addr++;
         str++;
     }
 }
-void display(unsigned long int num)
+/*
+ * 名    称：dis_num()
+ * 功    能：显示数字
+ * 参    数：unsigned long int num
+ * 返回值：无
+ */
+void dis_num(unsigned long int num)
 {
-    uchar k;
-    uchar dis_flag = 0;
-    uchar table[7];
+    unsigned char k;
+    unsigned char dis_flag = 0;
+    unsigned char table[7];
 
     if(num == 0)
     {
-        write_data('0');
+        write_data_1602('0');
     }
     else if(num<=9 & num>0)
     {
@@ -100,7 +119,7 @@ void display(unsigned long int num)
     }
     for(k = 0; k < dis_flag; k++)
     {
-        write_data(table[k]);
+        write_data_1602(table[k]);
         delay_ms(1);
     }
 }

@@ -9,10 +9,9 @@
 #define INF_H_
 #include<msp430f169.h>
 #include"lcd_1602.h"
-#include"type.h"
 
 void infrared_decode();
-void get_value(uchar argu);
+void set_value(unsigned char);
 void init_port1();
 void init_device();
 

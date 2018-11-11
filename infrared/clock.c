@@ -1,11 +1,10 @@
-#include<msp430f169.h>
 /*
  * clock.c
  *
  *  Created on: 2018年10月5日
  *      Author: Jack
  */
-
+#include<msp430f169.h>
 //初始化时钟
 void init_clk_1M()
 {
@@ -25,6 +24,3 @@ void init_clk_1M()
     IFG1 &= ~OFIFG;
 
 }
-
-
-

@@ -138,7 +138,7 @@ BIN_OUTPUTS__QUOTED += \
 
 # All Target
 all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
-	@$(MAKE) --no-print-directory -Onone "infrared.out"
+	@$(MAKE) --no-print-directory -Onone "infrared.out" secondary-outputs
 
 # Tool invocations
 infrared.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
@@ -154,6 +154,7 @@ infrared.hex: $(EXE_OUTPUTS)
 	"C:/ti/ccsv8/tools/compiler/ti-cgt-msp430_18.1.3.LTS/bin/hex430" --memwidth=8 --romwidth=8 -o "infrared.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building: $(strip $(EXE_OUTPUTS__QUOTED))'
 	@echo ' '
+	@$(MAKE) --no-print-directory post-build
 
 # Other Targets
 clean:
@@ -162,6 +163,12 @@ clean:
 	-$(RM) "Port.d" "clock.d" "inf.d" "lcd_1602.d" "main.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
+
+post-build:
+	-"C:/ti/ccsv8/tools/compiler/ti-cgt-msp430_18.1.3.LTS/bin/hex430" --ti_txt "infrared.out" -o "infrared.txt" -order MS -romwidth 16
+	-@echo ' '
+
+secondary-outputs: $(BIN_OUTPUTS)
 
 .PHONY: all clean dependents
 .SECONDARY:
